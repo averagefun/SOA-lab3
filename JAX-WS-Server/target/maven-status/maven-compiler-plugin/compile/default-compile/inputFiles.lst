@@ -1,3 +1,5 @@
-/home/poma12390/Documents/JAX-WS-Example/JAX-WS-Server/src/main/java/de/gre90r/jaxwsserver/employee/Employee.java
-/home/poma12390/Documents/JAX-WS-Example/JAX-WS-Server/src/main/java/de/gre90r/jaxwsserver/employee/EmployeeService.java
-/home/poma12390/Documents/JAX-WS-Example/JAX-WS-Server/src/main/java/de/gre90r/jaxwsserver/server/Server.java
+/home/poma12390/Documents/JAX-WS-Example/JAX-WS-Server/src/main/java/de/gre90r/jaxwsserver/models/Location.java
+/home/poma12390/Documents/JAX-WS-Example/JAX-WS-Server/src/main/java/de/gre90r/jaxwsserver/server/RoutesResource.java
+/home/poma12390/Documents/JAX-WS-Example/JAX-WS-Server/src/main/java/de/gre90r/jaxwsserver/models/Route.java
+/home/poma12390/Documents/JAX-WS-Example/JAX-WS-Server/src/main/java/de/gre90r/jaxwsserver/models/Coordinates.java
+/home/poma12390/Documents/JAX-WS-Example/JAX-WS-Server/src/main/java/de/gre90r/jaxwsserver/Main.java
