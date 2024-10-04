@@ -1,28 +1,48 @@
 package de.gre90r.jaxwsserver.server;
 
-import com.sun.net.httpserver.HttpServer;
+import com.sun.net.httpserver.HttpsServer;
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.Filter;
 import com.sun.net.httpserver.HttpExchange;
 
 import de.gre90r.jaxwsserver.employee.EmployeeService;
 
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
 import javax.xml.ws.Endpoint;
+
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.InetSocketAddress;
-
+import java.security.KeyStore;
 
 public class Server {
-	private static final String URL = "http://localhost:8080/employee-service";
+	private static final String URL = "https://localhost:8443/employee-service";
 
 	public static void main(String[] args) {
 		try {
-			// Create the HttpServer
-			InetSocketAddress address = new InetSocketAddress(8080);
-			HttpServer httpServer = HttpServer.create(address, 0);
+			// Setup the SSL context
+			char[] passphrase = "password".toCharArray(); // Replace with your keystore password
+			KeyStore ks = KeyStore.getInstance("JKS");
+			ks.load(new FileInputStream("server.keystore"), passphrase);
+
+			KeyManagerFactory kmf = KeyManagerFactory.getInstance("SunX509");
+			kmf.init(ks, passphrase);
+
+			TrustManagerFactory tmf = TrustManagerFactory.getInstance("SunX509");
+			tmf.init(ks);
+
+			SSLContext sslContext = SSLContext.getInstance("TLS");
+			sslContext.init(kmf.getKeyManagers(), tmf.getTrustManagers(), null);
+
+			// Create the HttpsServer
+			InetSocketAddress address = new InetSocketAddress(8443);
+			HttpsServer httpsServer = HttpsServer.create(address, 0);
+			httpsServer.setHttpsConfigurator(new com.sun.net.httpserver.HttpsConfigurator(sslContext));
 
 			// Create the context
-			HttpContext context = httpServer.createContext("/employee-service");
+			HttpContext context = httpsServer.createContext("/employee-service");
 
 			// Add a filter to handle CORS and OPTIONS
 			context.getFilters().add(new CORSFilter());
@@ -31,7 +51,7 @@ public class Server {
 			Endpoint endpoint = Endpoint.create(new EmployeeService());
 			endpoint.publish(context);
 
-			httpServer.start();
+			httpsServer.start();
 
 			System.out.println("Endpoint running... " + URL);
 		} catch (Exception e) {

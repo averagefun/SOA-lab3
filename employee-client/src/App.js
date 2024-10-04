@@ -5,7 +5,7 @@ function App() {
   const [id, setId] = useState('');
 
   const getEmployeeById = async () => {
-    const url = 'http://localhost:8080/employee-service';
+    const url = 'https://localhost:8443/employee-service';
     const soapRequest = `
       <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:empl="http://employee.jaxwsserver.gre90r.de/">
         <soapenv:Header/>
