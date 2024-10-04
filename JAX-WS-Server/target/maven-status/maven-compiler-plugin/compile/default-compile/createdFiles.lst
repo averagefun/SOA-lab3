@@ -1,7 +1,6 @@
 de/gre90r/jaxwsserver/server/RoutesResource$1.class
 de/gre90r/jaxwsserver/server/RoutesResource.class
-de/gre90r/jaxwsserver/models/Coordinates.class
 de/gre90r/jaxwsserver/models/Route.class
 de/gre90r/jaxwsserver/models/Location.class
+de/gre90r/jaxwsserver/models/Coordinates.class
 de/gre90r/jaxwsserver/server/RoutesResource$2.class
-de/gre90r/jaxwsserver/Main.class

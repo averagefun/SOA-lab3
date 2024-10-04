@@ -7,7 +7,6 @@ import de.gre90r.jaxwsserver.models.Route;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import java.util.*;
-import java.time.LocalDateTime;
 
 @Path("/routes")
 @Produces(MediaType.APPLICATION_JSON)

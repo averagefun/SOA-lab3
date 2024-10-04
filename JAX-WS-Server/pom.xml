@@ -89,6 +89,19 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- Grizzly NIO Framework -->
+		<dependency>
+			<groupId>org.glassfish.grizzly</groupId>
+			<artifactId>grizzly-framework</artifactId>
+			<version>2.4.4</version>
+		</dependency>
+
+		<!-- Grizzly SSL -->
+		<dependency>
+			<groupId>org.glassfish.grizzly</groupId>
+			<artifactId>grizzly-http-server</artifactId>
+			<version>2.4.4</version>
+		</dependency>
 
 	</dependencies>
 
