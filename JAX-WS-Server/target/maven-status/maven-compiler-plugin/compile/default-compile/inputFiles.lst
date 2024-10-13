@@ -1,5 +1,6 @@
-/home/poma12390/Documents/JAX-WS-Example/JAX-WS-Server/src/main/java/de/gre90r/jaxwsserver/models/Location.java
-/home/poma12390/Documents/JAX-WS-Example/JAX-WS-Server/src/main/java/de/gre90r/jaxwsserver/server/RoutesResource.java
-/home/poma12390/Documents/JAX-WS-Example/JAX-WS-Server/src/main/java/de/gre90r/jaxwsserver/models/Route.java
-/home/poma12390/Documents/JAX-WS-Example/JAX-WS-Server/src/main/java/de/gre90r/jaxwsserver/models/Coordinates.java
-/home/poma12390/Documents/JAX-WS-Example/JAX-WS-Server/src/main/java/de/gre90r/jaxwsserver/Main.java
+C:\Users\pomat\Documents\Itmo\SOA-lab2\JAX-WS-Server\src\main\java\de\gre90r\jaxwsserver\model\Coordinates.java
+C:\Users\pomat\Documents\Itmo\SOA-lab2\JAX-WS-Server\src\main\java\de\gre90r\jaxwsserver\model\Location.java
+C:\Users\pomat\Documents\Itmo\SOA-lab2\JAX-WS-Server\src\main\java\de\gre90r\jaxwsserver\controllers\HelloWorldResource.java
+C:\Users\pomat\Documents\Itmo\SOA-lab2\JAX-WS-Server\src\main\java\de\gre90r\jaxwsserver\ApplicationConfig.java
+C:\Users\pomat\Documents\Itmo\SOA-lab2\JAX-WS-Server\src\main\java\de\gre90r\jaxwsserver\controllers\RoutesResource.java
+C:\Users\pomat\Documents\Itmo\SOA-lab2\JAX-WS-Server\src\main\java\de\gre90r\jaxwsserver\model\Route.java
