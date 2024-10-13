@@ -1,186 +1,34 @@
 package de.gre90r.jaxwsserver.controllers;
 
-import de.gre90r.jaxwsserver.model.Coordinates;
-import de.gre90r.jaxwsserver.model.Location;
 import de.gre90r.jaxwsserver.model.Route;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.persistence.criteria.*;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.*;
+import jakarta.validation.Valid;
+import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
-import jakarta.validation.Valid;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.*;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
 
-
 import java.time.LocalDate;
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 
 
 @Path("/routes")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@RequestScoped
 public class RoutesResource {
 
-    private static Map<Long, Route> routeStore = new HashMap<>();
-    private static long idCounter = 1;
+    @PersistenceContext(unitName = "RoutesPU")
+    private EntityManager em;
 
-    static {
-        // Инициализация с некоторыми данными
-        Route route = new Route();
-        route.setId(idCounter++);
-        route.setName("Sample Route");
-        route.setDistance(100.0);
-        Coordinates coords = new Coordinates();
-        coords.setX(0);
-        coords.setY(0L);
-        route.setCoordinates(coords);
-        route.setCreationDate(LocalDate.now());
-        route.setFrom(null); // Можно установить значение или оставить null
-        route.setTo(null);
-        routeStore.put(route.getId(), route);
-    }
-
-    @GET
-    public Response getAllRoutes(
-            @QueryParam("page") @DefaultValue("1") int page,
-            @QueryParam("size") @DefaultValue("10") int size,
-            @QueryParam("sort") String sort,
-            @QueryParam("filter") String filter,
-            @QueryParam("name") String nameFilter) {
-
-        List<Route> routes = new ArrayList<>(routeStore.values());
-
-        // Фильтрация по имени, если задано
-        if (nameFilter != null && !nameFilter.isEmpty()) {
-            routes.removeIf(route -> !route.getName().contains(nameFilter));
-        }
-
-        // Реализация сортировки, если необходимо
-
-        // Реализация пагинации
-        int fromIndex = (page - 1) * size;
-        int toIndex = Math.min(fromIndex + size, routes.size());
-        if (fromIndex > routes.size()) {
-            routes = Collections.emptyList();
-        } else {
-            routes = routes.subList(fromIndex, toIndex);
-        }
-
-        GenericEntity<List<Route>> entity = new GenericEntity<>(routes) {};
-        return Response.ok(entity).build();
-    }
-
-    @POST
-    public Response addRoute(@Valid Route route, @Context UriInfo uriInfo) {
-        // Автоматическая генерация id и creationDate
-        route.setId(idCounter++);
-        route.setCreationDate(LocalDate.now());
-
-        routeStore.put(route.getId(), route);
-
-        UriBuilder builder = uriInfo.getAbsolutePathBuilder();
-        builder.path(Long.toString(route.getId()));
-        return Response.created(builder.build()).entity(route).build();
-    }
-
-    @Path("/{id}")
-    @GET
-    public Response getRouteById(@PathParam("id") long id) {
-        Route route = routeStore.get(id);
-        if (route == null) {
-            return Response.status(Response.Status.NOT_FOUND).entity("Route not found").build();
-        }
-        return Response.ok(route).build();
-    }
-
-    @Path("/{id}")
-    @PUT
-    public Response updateRoute(@PathParam("id") long id, @Valid Route updatedRoute) {
-        Route existingRoute = routeStore.get(id);
-        if (existingRoute == null) {
-            return Response.status(Response.Status.NOT_FOUND).entity("Route not found").build();
-        }
-
-        // Обновляем только изменяемые поля
-        updatedRoute.setId(id);
-        updatedRoute.setCreationDate(existingRoute.getCreationDate()); // creationDate не меняется
-
-        routeStore.put(id, updatedRoute);
-
-        return Response.ok(updatedRoute).build();
-    }
-
-    @Path("/{id}")
-    @DELETE
-    public Response deleteRoute(@PathParam("id") long id) {
-        Route removedRoute = routeStore.remove(id);
-        if (removedRoute == null) {
-            return Response.status(Response.Status.NOT_FOUND).entity("Route not found").build();
-        }
-        return Response.noContent().build();
-    }
-
-    @Path("/name/{value}")
-    @GET
-    public Response getRoutesByNameSubstring(@PathParam("value") String value) {
-        List<Route> matchingRoutes = new ArrayList<>();
-        for (Route route : routeStore.values()) {
-            if (route.getName().contains(value)) {
-                matchingRoutes.add(route);
-            }
-        }
-
-        if (matchingRoutes.isEmpty()) {
-            return Response.status(Response.Status.NOT_FOUND).entity("No routes found").build();
-        }
-
-        GenericEntity<List<Route>> entity = new GenericEntity<>(matchingRoutes) {};
-        return Response.ok(entity).build();
-    }
-
-    @Path("/from/max")
-    @GET
-    public Response getRouteWithMaxFrom() {
-        // Предполагая, что 'from' можно сравнивать, реализуем логику сравнения
-        Route maxRoute = null;
-        for (Route route : routeStore.values()) {
-            if (route.getFrom() != null) {
-                if (maxRoute == null || compareLocations(route.getFrom(), maxRoute.getFrom()) > 0) {
-                    maxRoute = route;
-                }
-            }
-        }
-
-        if (maxRoute == null) {
-            return Response.status(Response.Status.NOT_FOUND).entity("No routes found").build();
-        }
-
-        return Response.ok(maxRoute).build();
-    }
-
-    @Path("/distance/lower/{value}/count")
-    @GET
-    public Response getCountOfRoutesWithDistanceLowerThan(@PathParam("value") double value) {
-        long count = routeStore.values().stream()
-                .filter(route -> route.getDistance() < value)
-                .count();
-
-        return Response.ok("{\"count\":" + count + "}").build();
-    }
-
-    // Вспомогательный метод для сравнения двух объектов Location
-    private int compareLocations(Location loc1, Location loc2) {
-        if (loc1 == null) return -1;
-        if (loc2 == null) return 1;
-
-        // Реализуем логику сравнения на основе ваших критериев
-        // Например, сравнение по сумме x, y, z
-        double sum1 = loc1.getX() + loc1.getY() + loc1.getZ();
-        double sum2 = loc2.getX() + loc2.getY() + loc2.getZ();
-        return Double.compare(sum1, sum2);
-    }
-
-    // Обработка исключений валидации
+    // Обработчик исключений валидации
     @Provider
     public static class ValidationExceptionMapper implements ExceptionMapper<ConstraintViolationException> {
         @Override
@@ -191,5 +39,152 @@ public class RoutesResource {
             }
             return Response.status(Response.Status.BAD_REQUEST).entity(sb.toString()).build();
         }
+    }
+
+    // Получить все маршруты с фильтрацией, сортировкой и пагинацией
+    @GET
+    public Response getAllRoutes(
+            @QueryParam("page") @DefaultValue("1") int page,
+            @QueryParam("size") @DefaultValue("10") int size,
+            @QueryParam("sort") String sort,
+            @QueryParam("order") @DefaultValue("asc") String order,
+            @QueryParam("name") String nameFilter) {
+
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Route> cq = cb.createQuery(Route.class);
+        Root<Route> root = cq.from(Route.class);
+
+        List<Predicate> predicates = new ArrayList<>();
+
+        // Фильтрация по имени
+        if (nameFilter != null && !nameFilter.isEmpty()) {
+            predicates.add(cb.like(root.get("name"), "%" + nameFilter + "%"));
+        }
+
+        // Добавьте дополнительные фильтры при необходимости
+
+        // Применение фильтров
+        if (!predicates.isEmpty()) {
+            cq.where(cb.and(predicates.toArray(new Predicate[0])));
+        }
+
+        TypedQuery<Route> query = em.createQuery(cq);
+
+        // Пагинация
+        query.setFirstResult((page - 1) * size);
+        query.setMaxResults(size);
+
+        List<Route> routes = query.getResultList();
+
+        GenericEntity<List<Route>> entity = new GenericEntity<>(routes) {};
+        return Response.ok(entity).build();
+    }
+
+    // Добавить новый маршрут
+    @POST
+    @Transactional
+    public Response addRoute(@Valid Route route, @Context UriInfo uriInfo) {
+        route.setCreationDate(LocalDate.now());
+        em.persist(route);
+
+        UriBuilder builder = uriInfo.getAbsolutePathBuilder();
+        builder.path(Long.toString(route.getId()));
+        return Response.created(builder.build()).entity(route).build();
+    }
+
+    // Получить маршрут по ID
+    @Path("/{id}")
+    @GET
+    public Response getRouteById(@PathParam("id") long id) {
+        Route route = em.find(Route.class, id);
+        if (route == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Route not found").build();
+        }
+        return Response.ok(route).build();
+    }
+
+    // Обновить маршрут
+    @Path("/{id}")
+    @PUT
+    @Transactional
+    public Response updateRoute(@PathParam("id") long id, @Valid Route updatedRoute) {
+        Route existingRoute = em.find(Route.class, id);
+        if (existingRoute == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Route not found").build();
+        }
+
+        // Обновляем поля
+        existingRoute.setName(updatedRoute.getName());
+        existingRoute.setCoordinates(updatedRoute.getCoordinates());
+        existingRoute.setFrom(updatedRoute.getFrom());
+        existingRoute.setTo(updatedRoute.getTo());
+        existingRoute.setDistance(updatedRoute.getDistance());
+
+        // Поле creationDate и id не изменяем
+        em.merge(existingRoute);
+
+        return Response.ok(existingRoute).build();
+    }
+
+    // Удалить маршрут
+    @Path("/{id}")
+    @DELETE
+    @Transactional
+    public Response deleteRoute(@PathParam("id") long id) {
+        Route route = em.find(Route.class, id);
+        if (route == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Route not found").build();
+        }
+        em.remove(route);
+        return Response.noContent().build();
+    }
+
+    // Получить маршрут с максимальным значением 'from'
+    @Path("/from/max")
+    @GET
+    public Response getRouteWithMaxFrom() {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Route> cq = cb.createQuery(Route.class);
+        Root<Route> root = cq.from(Route.class);
+
+        // Проверяем, что поле 'from' не null
+        cq.where(cb.isNotNull(root.get("from")));
+
+        // Вычисляем сумму x + y + z для 'from'
+        Expression<Integer> sumExpr = cb.sum(
+                cb.sum(
+                        cb.coalesce(root.get("from").get("x"), 0),
+                        cb.coalesce(root.get("from").get("y"), 0)
+                ),
+                cb.coalesce(root.get("from").get("z"), 0)
+        );
+
+        // Сортируем по сумме в порядке убывания
+        cq.orderBy(cb.desc(sumExpr));
+
+        TypedQuery<Route> query = em.createQuery(cq);
+        query.setMaxResults(1);
+
+        List<Route> result = query.getResultList();
+        if (result.isEmpty()) {
+            return Response.status(Response.Status.NOT_FOUND).entity("No routes found").build();
+        }
+        return Response.ok(result.get(0)).build();
+    }
+
+    // Получить количество маршрутов с расстоянием меньше заданного
+    @Path("/distance/lower/{value}/count")
+    @GET
+    public Response getCountOfRoutesWithDistanceLowerThan(@PathParam("value") double value) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Long> cq = cb.createQuery(Long.class);
+        Root<Route> root = cq.from(Route.class);
+
+        cq.select(cb.count(root));
+        cq.where(cb.lessThan(root.get("distance"), value));
+
+        Long count = em.createQuery(cq).getSingleResult();
+
+        return Response.ok("{\"count\":" + count + "}").build();
     }
 }
