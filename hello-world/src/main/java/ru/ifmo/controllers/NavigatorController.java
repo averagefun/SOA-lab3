@@ -19,7 +19,7 @@ import java.util.Optional;
 public class NavigatorController {
 
     private static final Logger logger = LoggerFactory.getLogger(NavigatorController.class);
-    private static final String FIRST_SERVICE_BASE_URL = "http://localhost:8080/route-1.0-SNAPSHOT/api/routes";
+    private static final String FIRST_SERVICE_BASE_URL = "https://localhost:8181/route-1.0-SNAPSHOT/api/routes";
 
     @Autowired
     private RestTemplate restTemplate;
