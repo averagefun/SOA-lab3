@@ -9,7 +9,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 public class Location {
     private Long id;
     private Integer x;
-    private Double y;
+    private Long y;
     private Integer z;
     private String name;
 }

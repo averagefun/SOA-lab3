@@ -30,12 +30,12 @@ public class Route {
     private LocalDate creationDate; // Генерируется автоматически
 
     @Valid
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "from_location_id")
     private Location from;
 
     @Valid
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "to_location_id")
     private Location to;
 
@@ -47,5 +47,4 @@ public class Route {
     protected void onCreate() {
         this.creationDate = LocalDate.now();
     }
-
 }

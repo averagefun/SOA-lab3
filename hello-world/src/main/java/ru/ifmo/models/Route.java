@@ -1,5 +1,6 @@
 package ru.ifmo.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -16,7 +17,7 @@ public class Route {
     private Location from;
     private Location to;
     private Double distance;
-    private LocalDate creationDate;
 
-    // Конструкторы, геттеры и сеттеры генерируются Lombok
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate creationDate;
 }

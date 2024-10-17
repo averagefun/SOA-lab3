@@ -1,10 +1,15 @@
 package de.gre90r.jaxwsserver.controllers;
 
+import de.gre90r.jaxwsserver.exception.RouteNotFoundException;
+import de.gre90r.jaxwsserver.model.Location;
 import de.gre90r.jaxwsserver.model.Route;
+import de.gre90r.jaxwsserver.service.RouteService;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 import jakarta.persistence.criteria.*;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.Path;
+;
 import jakarta.ws.rs.core.*;
 import jakarta.validation.Valid;
 import jakarta.persistence.*;
@@ -15,8 +20,11 @@ import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
 
 
 @Path("/routes")
@@ -27,6 +35,9 @@ public class RoutesResource {
 
     @PersistenceContext(unitName = "RoutesPU")
     private EntityManager em;
+
+    @Inject
+    private RouteService routeService;
 
     // Обработчик исключений валидации
     @Provider
@@ -41,14 +52,17 @@ public class RoutesResource {
         }
     }
 
-    // Получить все маршруты с фильтрацией, сортировкой и пагинацией
     @GET
     public Response getAllRoutes(
             @QueryParam("page") @DefaultValue("1") int page,
             @QueryParam("size") @DefaultValue("10") int size,
-            @QueryParam("sort") String sort,
+            @QueryParam("sort") @DefaultValue("id") String sort,
             @QueryParam("order") @DefaultValue("asc") String order,
-            @QueryParam("name") String nameFilter) {
+            @QueryParam("name") String nameFilter,
+            @QueryParam("fromLocationId") Long fromLocationId,
+            @QueryParam("toLocationId") Long toLocationId,
+            @QueryParam("minDistance") Double minDistance,
+            @QueryParam("maxDistance") Double maxDistance) {
 
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Route> cq = cb.createQuery(Route.class);
@@ -56,21 +70,46 @@ public class RoutesResource {
 
         List<Predicate> predicates = new ArrayList<>();
 
-        // Фильтрация по имени
+        // Filter by name
         if (nameFilter != null && !nameFilter.isEmpty()) {
             predicates.add(cb.like(root.get("name"), "%" + nameFilter + "%"));
         }
 
-        // Добавьте дополнительные фильтры при необходимости
+        // Filter by fromLocationId
+        if (fromLocationId != null) {
+            predicates.add(cb.equal(root.get("from").get("id"), fromLocationId));
+        }
 
-        // Применение фильтров
+        // Filter by toLocationId
+        if (toLocationId != null) {
+            predicates.add(cb.equal(root.get("to").get("id"), toLocationId));
+        }
+
+        // Filter by minimum distance
+        if (minDistance != null) {
+            predicates.add(cb.greaterThanOrEqualTo(root.get("distance"), minDistance));
+        }
+
+        // Filter by maximum distance
+        if (maxDistance != null) {
+            predicates.add(cb.lessThanOrEqualTo(root.get("distance"), maxDistance));
+        }
+
+        // Apply filters
         if (!predicates.isEmpty()) {
             cq.where(cb.and(predicates.toArray(new Predicate[0])));
         }
 
+        // Apply sorting
+        if ("desc".equalsIgnoreCase(order)) {
+            cq.orderBy(cb.desc(root.get(sort)));
+        } else {
+            cq.orderBy(cb.asc(root.get(sort)));
+        }
+
         TypedQuery<Route> query = em.createQuery(cq);
 
-        // Пагинация
+        // Pagination
         query.setFirstResult((page - 1) * size);
         query.setMaxResults(size);
 
@@ -80,16 +119,23 @@ public class RoutesResource {
         return Response.ok(entity).build();
     }
 
-    // Добавить новый маршрут
+
+    /**
+     * Добавление нового маршрута.
+     *
+     * @param route маршрут для добавления
+     * @param uriInfo информация о URI
+     * @return ответ с созданным маршрутом
+     */
     @POST
-    @Transactional
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response addRoute(@Valid Route route, @Context UriInfo uriInfo) {
-        route.setCreationDate(LocalDate.now());
-        em.persist(route);
+        Route createdRoute = routeService.addRoute(route);
 
         UriBuilder builder = uriInfo.getAbsolutePathBuilder();
-        builder.path(Long.toString(route.getId()));
-        return Response.created(builder.build()).entity(route).build();
+        builder.path(Long.toString(createdRoute.getId()));
+        return Response.created(builder.build()).entity(createdRoute).build();
     }
 
     // Получить маршрут по ID
@@ -103,27 +149,24 @@ public class RoutesResource {
         return Response.ok(route).build();
     }
 
-    // Обновить маршрут
-    @Path("/{id}")
+    /**
+     * Обновление существующего маршрута.
+     *
+     * @param id          идентификатор маршрута для обновления
+     * @param updatedRoute обновленные данные маршрута
+     * @return ответ с обновленным маршрутом или ошибкой
+     */
     @PUT
-    @Transactional
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response updateRoute(@PathParam("id") long id, @Valid Route updatedRoute) {
-        Route existingRoute = em.find(Route.class, id);
-        if (existingRoute == null) {
-            return Response.status(Response.Status.NOT_FOUND).entity("Route not found").build();
+        try {
+            Route route = routeService.updateRoute(id, updatedRoute);
+            return Response.ok(route).build();
+        } catch (RouteNotFoundException ex) {
+            return Response.status(Response.Status.NOT_FOUND).entity(ex.getMessage()).build();
         }
-
-        // Обновляем поля
-        existingRoute.setName(updatedRoute.getName());
-        existingRoute.setCoordinates(updatedRoute.getCoordinates());
-        existingRoute.setFrom(updatedRoute.getFrom());
-        existingRoute.setTo(updatedRoute.getTo());
-        existingRoute.setDistance(updatedRoute.getDistance());
-
-        // Поле creationDate и id не изменяем
-        em.merge(existingRoute);
-
-        return Response.ok(existingRoute).build();
     }
 
     // Удалить маршрут

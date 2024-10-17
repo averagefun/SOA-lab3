@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 import ru.ifmo.models.Route;
 
-import java.util.Arrays;
+import java.net.URI;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/navigator")
@@ -40,45 +41,47 @@ public class NavigatorController {
         logger.info("Received request to find route from {} to {} with shortest={}", idFrom, idTo, shortest);
 
         try {
-            // Получаем все маршруты
-            ResponseEntity<Route[]> response = restTemplate.getForEntity(FIRST_SERVICE_BASE_URL, Route[].class);
+            // Построение URI с параметрами фильтрации
+            UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(FIRST_SERVICE_BASE_URL)
+                    .queryParam("fromLocationId", idFrom)
+                    .queryParam("toLocationId", idTo)
+                    .queryParam("page", 1)
+                    .queryParam("size", 100);
+
+            URI uri = builder.build().encode().toUri();
+
+            // Получаем отфильтрованные маршруты
+            ResponseEntity<Route[]> response = restTemplate.getForEntity(uri, Route[].class);
             if (response.getStatusCode() != HttpStatus.OK || response.getBody() == null) {
                 logger.error("Error fetching routes from the first service. Status: {}", response.getStatusCode());
                 return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("Error fetching routes from the first service.");
             }
 
-            List<Route> routes = Arrays.asList(response.getBody());
+            List<Route> routes = List.of(response.getBody());
+            logger.info("Retrieved {} routes after filtering", routes.size());
 
-            // Фильтруем маршруты по from и to
-            List<Route> filteredRoutes = routes.stream()
-                    .filter(route -> route.getFrom() != null && route.getTo() != null)
-                    .filter(route -> route.getFrom().getId().equals(idFrom) && route.getTo().getId().equals(idTo))
-                    .collect(Collectors.toList());
-
-            if (filteredRoutes.isEmpty()) {
+            if (routes.isEmpty()) {
                 logger.warn("No routes found between from ID {} and to ID {}", idFrom, idTo);
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No routes found between the specified locations.");
             }
 
-            // Выбираем маршрут по параметру shortest
-            Route selectedRoute;
+            // Выбор маршрута по параметру shortest
+            Optional<Route> selectedRoute;
             if (shortest) {
-                selectedRoute = filteredRoutes.stream()
-                        .min(Comparator.comparingDouble(Route::getDistance))
-                        .orElse(null);
+                selectedRoute = routes.stream()
+                        .min(Comparator.comparingDouble(Route::getDistance));
             } else {
-                selectedRoute = filteredRoutes.stream()
-                        .max(Comparator.comparingDouble(Route::getDistance))
-                        .orElse(null);
+                selectedRoute = routes.stream()
+                        .max(Comparator.comparingDouble(Route::getDistance));
             }
 
-            if (selectedRoute == null) {
+            if (selectedRoute.isEmpty()) {
                 logger.warn("No suitable route found after filtering.");
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No suitable route found.");
             }
 
-            logger.info("Route found: {}", selectedRoute);
-            return ResponseEntity.ok(selectedRoute);
+            logger.info("Route found: {}", selectedRoute.get());
+            return ResponseEntity.ok(selectedRoute.get());
 
         } catch (Exception e) {
             logger.error("Exception occurred while processing request", e);
@@ -103,46 +106,45 @@ public class NavigatorController {
         logger.info("Received request to find routes from {} to {} with orderBy={}", idFrom, idTo, orderBy);
 
         try {
-            // Получаем все маршруты
-            ResponseEntity<Route[]> response = restTemplate.getForEntity(FIRST_SERVICE_BASE_URL, Route[].class);
+            // Построение URI с параметрами фильтрации и сортировки
+            UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(FIRST_SERVICE_BASE_URL)
+                    .queryParam("fromLocationId", idFrom)
+                    .queryParam("toLocationId", idTo)
+                    .queryParam("sort", orderBy)
+                    .queryParam("order", "asc") // По умолчанию по возрастанию
+                    .queryParam("page", 1) // Настроить пагинацию по необходимости
+                    .queryParam("size", 1000); // Максимум 1000 маршрутов
+
+            URI uri = builder.build().encode().toUri();
+
+            // Получаем отфильтрованные и отсортированные маршруты
+            ResponseEntity<Route[]> response = restTemplate.getForEntity(uri, Route[].class);
             if (response.getStatusCode() != HttpStatus.OK || response.getBody() == null) {
                 logger.error("Error fetching routes from the first service. Status: {}", response.getStatusCode());
                 return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("Error fetching routes from the first service.");
             }
 
-            List<Route> routes = Arrays.asList(response.getBody());
+            List<Route> routes = List.of(response.getBody());
+            logger.info("Retrieved {} routes after filtering and sorting", routes.size());
 
-            // Фильтруем маршруты по from и to
-            List<Route> filteredRoutes = routes.stream()
-                    .filter(route -> route.getFrom() != null && route.getTo() != null)
-                    .filter(route -> route.getFrom().getId().equals(idFrom) && route.getTo().getId().equals(idTo))
-                    .collect(Collectors.toList());
-
-            if (filteredRoutes.isEmpty()) {
+            if (routes.isEmpty()) {
                 logger.warn("No routes found between from ID {} and to ID {}", idFrom, idTo);
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No routes found between the specified locations.");
             }
 
-            // Сортируем маршруты по параметру orderBy
-            Comparator<Route> comparator;
+            // Валидация параметра orderBy и корректировка сортировки при необходимости
             switch (orderBy.toLowerCase()) {
                 case "name":
-                    comparator = Comparator.comparing(Route::getName, Comparator.nullsLast(String::compareTo));
-                    break;
                 case "distance":
-                    comparator = Comparator.comparing(Route::getDistance, Comparator.nullsLast(Double::compareTo));
+                    // Допустимые поля для сортировки
                     break;
                 default:
                     logger.error("Invalid order-by parameter: {}", orderBy);
                     return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid order-by parameter.");
             }
 
-            List<Route> sortedRoutes = filteredRoutes.stream()
-                    .sorted(comparator)
-                    .collect(Collectors.toList());
-
-            logger.info("Found {} routes after sorting", sortedRoutes.size());
-            return ResponseEntity.ok(sortedRoutes);
+            logger.info("Found {} routes after sorting", routes.size());
+            return ResponseEntity.ok(routes);
 
         } catch (Exception e) {
             logger.error("Exception occurred while processing request", e);
