@@ -2,21 +2,27 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="route" />
+        <module name="web-app" />
+        <module name="shared" />
+        <module name="ejb-module" />
       </profile>
-      <profile name="Annotation profile for spring-mvc-navigator" enabled="true">
+      <profile name="Annotation profile for navigator-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
         </processorPath>
-        <module name="spring-mvc-navigator" />
+        <module name="navigator-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring-mvc-navigator" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
