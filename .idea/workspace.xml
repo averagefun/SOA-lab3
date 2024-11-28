@@ -4,64 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/configuration/CorsFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/frontend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/RouteDetails.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/RouteForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/RoutesList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/setupTests.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/configuration/CustomRestTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/configuration/CustomRestTemplateConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/controllers/NavigatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/controllers/NavigatorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/ApplicationConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/controllers/RoutesResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/controllers/RoutesResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/model/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/model/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/model/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/service/RouteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/service/RouteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/route/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/ApplicationConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/controllers/RoutesResource$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/controllers/RoutesResource$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/controllers/RoutesResource$ValidationExceptionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/controllers/RoutesResource$ValidationExceptionMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/controllers/RoutesResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/controllers/RoutesResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/model/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/model/Location.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/model/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/model/Route.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/service/RouteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/service/RouteService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/ApplicationConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/controllers/RoutesResource$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/controllers/RoutesResource$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/controllers/RoutesResource$ValidationExceptionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/controllers/RoutesResource$ValidationExceptionMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/controllers/RoutesResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/controllers/RoutesResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/model/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/model/Location.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/model/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/model/Route.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/service/RouteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/service/RouteService.class" afterDir="false" />
-    </list>
+    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="fix issues" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,12 +55,25 @@
       <updated>1730532617145</updated>
       <workItem from="1730532618146" duration="2231000" />
       <workItem from="1731746090381" duration="2915000" />
-      <workItem from="1732823521938" duration="765000" />
+      <workItem from="1732823521938" duration="1111000" />
     </task>
+    <task id="LOCAL-00001" summary="fix issues">
+      <option name="closed" value="true" />
+      <created>1732824622850</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732824622850</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix issues" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
