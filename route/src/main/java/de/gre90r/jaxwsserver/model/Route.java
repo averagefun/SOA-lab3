@@ -2,6 +2,7 @@ package de.gre90r.jaxwsserver.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -29,18 +30,16 @@ public class Route {
 
     private LocalDate creationDate; // Генерируется автоматически
 
-    @Valid
-    @ManyToOne
-    @JoinColumn(name = "from_location_id")
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "from_location_id", nullable = true)
     private Location from;
 
-    @Valid
-    @ManyToOne
-    @JoinColumn(name = "to_location_id")
+    @ManyToOne(optional = true) // Устанавливаем связь как опциональную
+    @JoinColumn(name = "to_location_id", nullable = true)
     private Location to;
 
     @NotNull(message = "Distance cannot be null")
-    @Min(value = 2, message = "Distance must be greater than 1")
+    @DecimalMin(value = "1.0", inclusive = false, message = "Distance must be greater than 1")
     private Double distance;
 
     @PrePersist

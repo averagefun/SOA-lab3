@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "locations", uniqueConstraints = @UniqueConstraint(columnNames = {"x", "y", "z", "name"}))
+@Table(name = "locations", uniqueConstraints = @UniqueConstraint(columnNames = {"name", "x", "y", "z"}))
 public class Location {
 
     @Id
@@ -17,13 +17,10 @@ public class Location {
     @NotNull(message = "X cannot be null")
     private Integer x;
 
-    @NotNull(message = "Y cannot be null")
-    private Long y;
+    private long y = 0;
 
-    @NotNull(message = "Z cannot be null")
-    private int z;
+    private int z = 0;
 
-    @NotNull(message = "Name cannot be null")
     @Size(min = 1, message = "Name cannot be empty")
     private String name;
 }

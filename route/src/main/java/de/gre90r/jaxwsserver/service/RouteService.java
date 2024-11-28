@@ -79,20 +79,25 @@ public class RouteService {
      * @return существующая или новая локация
      */
     private Location findOrCreateLocation(Location location) {
-        TypedQuery<Location> query = em.createQuery(
-                "SELECT l FROM Location l WHERE l.x = :x AND l.y = :y AND l.z = :z AND l.name = :name",
-                Location.class);
-        query.setParameter("x", location.getX());
-        query.setParameter("y", location.getY());
-        query.setParameter("z", location.getZ());
-        query.setParameter("name", location.getName());
+        try {
+            TypedQuery<Location> query = em.createQuery(
+                    "SELECT l FROM Location l WHERE l.x = :x AND l.y = :y AND l.z = :z AND l.name = :name",
+                    Location.class);
+            query.setParameter("x", location.getX());
+            query.setParameter("y", location.getY());
+            query.setParameter("z", location.getZ());
+            query.setParameter("name", location.getName());
 
-        List<Location> results = query.getResultList();
-        if (!results.isEmpty()) {
-            return results.get(0);
-        } else {
-            em.persist(location);
-            return location;
+            List<Location> results = query.getResultList();
+            if (!results.isEmpty()) {
+                return results.get(0);
+            } else {
+                em.persist(location);
+                return location;
+            }
+        }
+        catch (Exception e){
+            return null;
         }
     }
 }

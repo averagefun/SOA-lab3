@@ -1,30 +1,43 @@
 package de.gre90r.jaxwsserver.controllers;
 
 import de.gre90r.jaxwsserver.exception.RouteNotFoundException;
-import de.gre90r.jaxwsserver.model.Location;
 import de.gre90r.jaxwsserver.model.Route;
 import de.gre90r.jaxwsserver.service.RouteService;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import jakarta.persistence.criteria.*;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.Path;
-;
-import jakarta.ws.rs.core.*;
-import jakarta.validation.Valid;
-import jakarta.persistence.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Expression;
+import jakarta.persistence.criteria.Order;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Valid;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.DefaultValue;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.GenericEntity;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.UriBuilder;
+import jakarta.ws.rs.core.UriInfo;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
-
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
 
 
 @Path("/routes")
@@ -56,14 +69,23 @@ public class RoutesResource {
     public Response getAllRoutes(
             @QueryParam("page") @DefaultValue("1") int page,
             @QueryParam("size") @DefaultValue("10") int size,
-            @QueryParam("sort") @DefaultValue("id") String sort,
-            @QueryParam("order") @DefaultValue("asc") String order,
+            @QueryParam("sort") List<String> sortParams,
             @QueryParam("name") String nameFilter,
             @QueryParam("fromLocationId") Long fromLocationId,
             @QueryParam("toLocationId") Long toLocationId,
             @QueryParam("minDistance") Double minDistance,
-            @QueryParam("maxDistance") Double maxDistance) {
-
+            @QueryParam("maxDistance") Double maxDistance,
+            @QueryParam("coordinatesX") Integer coordinatesX,
+            @QueryParam("coordinatesY") Long coordinatesY,
+            @QueryParam("fromX") Integer fromX,
+            @QueryParam("fromY") Long fromY,
+            @QueryParam("fromZ") Integer fromZ,
+            @QueryParam("fromName") String fromName,
+            @QueryParam("toX") Integer toX,
+            @QueryParam("toY") Long toY,
+            @QueryParam("toZ") Integer toZ,
+            @QueryParam("toName") String toName
+    ) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Route> cq = cb.createQuery(Route.class);
         Root<Route> root = cq.from(Route.class);
@@ -95,16 +117,76 @@ public class RoutesResource {
             predicates.add(cb.lessThanOrEqualTo(root.get("distance"), maxDistance));
         }
 
+        // Filter by Coordinates.x
+        if (coordinatesX != null) {
+            predicates.add(cb.greaterThanOrEqualTo(root.get("coordinates").get("x"), coordinatesX));
+        }
+
+        // Filter by Coordinates.y
+        if (coordinatesY != null) {
+            predicates.add(cb.equal(root.get("coordinates").get("y"), coordinatesY));
+        }
+
+        // Filter by Location from (x, y, z, name)
+        if (fromX != null) {
+            predicates.add(cb.equal(root.get("from").get("x"), fromX));
+        }
+        if (fromY != null) {
+            predicates.add(cb.equal(root.get("from").get("y"), fromY));
+        }
+        if (fromZ != null) {
+            predicates.add(cb.equal(root.get("from").get("z"), fromZ));
+        }
+        if (fromName != null && !fromName.isEmpty()) {
+            predicates.add(cb.like(root.get("from").get("name"), "%" + fromName + "%"));
+        }
+
+        // Filter by Location to (x, y, z, name)
+        if (toX != null) {
+            predicates.add(cb.equal(root.get("to").get("x"), toX));
+        }
+        if (toY != null) {
+            predicates.add(cb.equal(root.get("to").get("y"), toY));
+        }
+        if (toZ != null) {
+            predicates.add(cb.equal(root.get("to").get("z"), toZ));
+        }
+        if (toName != null && !toName.isEmpty()) {
+            predicates.add(cb.like(root.get("to").get("name"), "%" + toName + "%"));
+        }
+
         // Apply filters
         if (!predicates.isEmpty()) {
             cq.where(cb.and(predicates.toArray(new Predicate[0])));
         }
 
-        // Apply sorting
-        if ("desc".equalsIgnoreCase(order)) {
-            cq.orderBy(cb.desc(root.get(sort)));
+        List<Order> orders = new ArrayList<>();
+        if (sortParams != null && !sortParams.isEmpty()) {
+            for (String sortParam : sortParams) {
+                String[] parts = sortParam.split(",");
+                String field = parts[0];
+                String sortOrder = parts.length > 1 ? parts[1] : "asc"; // По умолчанию asc
+
+                jakarta.persistence.criteria.Path<?> path = root;
+                if (field.contains(".")) {
+                    String[] fieldParts = field.split("\\.");
+                    for (String part : fieldParts) {
+                        path = path.get(part);
+                    }
+                } else {
+                    path = root.get(field);
+                }
+
+                if ("desc".equalsIgnoreCase(sortOrder)) {
+                    orders.add(cb.desc(path));
+                } else {
+                    orders.add(cb.asc(path));
+                }
+            }
+            cq.orderBy(orders);
         } else {
-            cq.orderBy(cb.asc(root.get(sort)));
+            // Сортировка по умолчанию
+            cq.orderBy(cb.asc(root.get("id")));
         }
 
         TypedQuery<Route> query = em.createQuery(cq);
@@ -118,6 +200,7 @@ public class RoutesResource {
         GenericEntity<List<Route>> entity = new GenericEntity<>(routes) {};
         return Response.ok(entity).build();
     }
+
 
 
     /**

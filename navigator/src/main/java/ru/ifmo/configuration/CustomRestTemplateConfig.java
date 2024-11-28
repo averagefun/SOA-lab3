@@ -28,7 +28,7 @@ public class CustomRestTemplateConfig {
                     }
 
                     public X509Certificate[] getAcceptedIssuers() {
-                        return new X509Certificate[0];
+                        return null;
                     }
                 }
         };

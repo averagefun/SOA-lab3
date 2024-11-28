@@ -16,10 +16,11 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/navigator")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class NavigatorController {
 
     private static final Logger logger = LoggerFactory.getLogger(NavigatorController.class);
-    private static final String FIRST_SERVICE_BASE_URL = "https://localhost:8181/route-1.0-SNAPSHOT/api/routes";
+    private static final String FIRST_SERVICE_BASE_URL = "https://localhost:8283/route/routes";
 
     @Autowired
     private RestTemplate restTemplate;
