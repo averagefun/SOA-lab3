@@ -5,82 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="fix issues">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/configuration/RestTemplateConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navigator/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navigator/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/ejb-module/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/ejb-module/src/main/java/se/ifmo/RouteServiceBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/ejb-module/src/main/java/se/ifmo/ejb/RouteServiceRemote.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/shared/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/web-app/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/controllers/RoutesResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/yatool.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SOA-lab2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SOA-lab3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navigator/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/navigator/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/configuration/CustomRestTemplateConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/configuration/WebAppInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/configuration/WebConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/controllers/NavigatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/controllers/NavigatorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/route/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/ApplicationConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/configuration/CorsFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/controllers/configuration/CorsFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/controllers/HelloWorldResource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/controllers/RoutesResource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/exception/RouteNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/exception/RouteNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/model/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/Coordinates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/model/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/java/de/gre90r/jaxwsserver/service/RouteService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/ApplicationConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/configuration/CorsFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/controllers/HelloWorldResource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/controllers/RoutesResource$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/controllers/RoutesResource$ValidationExceptionMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/controllers/RoutesResource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/exception/RouteNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/model/Coordinates.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/model/Location.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/model/Route.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/classes/de/gre90r/jaxwsserver/service/RouteService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/ApplicationConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/configuration/CorsFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/controllers/HelloWorldResource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/controllers/RoutesResource$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/controllers/RoutesResource$ValidationExceptionMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/controllers/RoutesResource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/exception/RouteNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/model/Coordinates.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/model/Location.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/model/Route.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/classes/de/gre90r/jaxwsserver/service/RouteService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/angus-activation-2.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/antlr4-runtime-4.13.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/byte-buddy-1.14.15.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/checker-qual-3.5.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/classmate-1.5.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/hibernate-commons-annotations-6.0.6.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/hibernate-core-6.5.2.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/istack-commons-runtime-4.1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/jakarta.activation-api-2.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/jakarta.inject-api-2.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/jakarta.persistence-api-3.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/jakarta.transaction-api-2.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/jakarta.xml.bind-api-4.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/jandex-3.1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/jaxb-core-4.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/jaxb-runtime-4.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/jboss-logging-3.5.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/postgresql-42.5.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/target/route-1.0-SNAPSHOT/WEB-INF/lib/txw2-4.0.2.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,9 +51,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "corretto-17",
-    "last_opened_file_path": "C:/Users/pomat/Documents/SOA-lab2/route/shared/src/main/java/se/ifmo/model/exception",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/andreey/itmo/SOA-lab3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -145,14 +76,13 @@
       <recent name="C:\Users\pomat\Documents\SOA-lab2\route\ejb-module\src\main" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="NavigatorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="navigator-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.ifmo.NavigatorApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -165,6 +95,7 @@
       <workItem from="1730532618146" duration="2231000" />
       <workItem from="1731746090381" duration="2915000" />
       <workItem from="1732823521938" duration="7155000" />
+      <workItem from="1732866019204" duration="424000" />
     </task>
     <task id="LOCAL-00001" summary="fix issues">
       <option name="closed" value="true" />

@@ -11,7 +11,7 @@
         <module name="shared" />
         <module name="ejb-module" />
       </profile>
-      <profile name="Annotation profile for navigator-service" enabled="true">
+      <profile name="Annotation profile for spring-mvc-navigator" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -19,10 +19,8 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
         </processorPath>
         <module name="navigator-service" />
+        <module name="navigator" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="spring-mvc-navigator" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
