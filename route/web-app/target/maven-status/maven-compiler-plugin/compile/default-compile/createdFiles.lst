@@ -1,5 +1,4 @@
 se/ifmo/ApplicationConfig.class
-se/ifmo/configuration/ConsulRegistration.class
 se/ifmo/configuration/CorsFilter.class
 se/ifmo/controllers/RoutesResource.class
 se/ifmo/controllers/RoutesResource$1.class

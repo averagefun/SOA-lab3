@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,18 +19,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+import ru.ifmo.ConsulService;
 import ru.ifmo.models.Route;
 
 @RestController
 @RequestMapping("/navigator")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class NavigatorController {
-
     private static final Logger logger = LoggerFactory.getLogger(NavigatorController.class);
-    private static final String ROUTE_SERVICE_URL = "https://zuul/route/api/routes";
+
+    private final RestTemplate restTemplate;
+    private final ConsulService consulService;
+
+    @Value("${route.template.url}")
+    private String routeTemplateUri;
 
     @Autowired
-    private RestTemplate restTemplate;
+    public NavigatorController(RestTemplate restTemplate, ConsulService consulService) {
+        this.restTemplate = restTemplate;
+        this.consulService = consulService;
+    }
 
     /**
      * Найти маршрут между локациями.
@@ -49,7 +58,7 @@ public class NavigatorController {
 
         try {
             // Построение URI с параметрами фильтрации
-            UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(ROUTE_SERVICE_URL)
+            UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(routeTemplateUri)
                     .queryParam("fromLocationId", idFrom)
                     .queryParam("toLocationId", idTo)
                     .queryParam("page", 1)
@@ -114,7 +123,7 @@ public class NavigatorController {
 
         try {
             // Построение URI с параметрами фильтрации и сортировки
-            UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(ROUTE_SERVICE_URL)
+            UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(routeTemplateUri)
                     .queryParam("fromLocationId", idFrom)
                     .queryParam("toLocationId", idTo)
                     .queryParam("sort", orderBy)

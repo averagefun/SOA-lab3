@@ -84,12 +84,6 @@
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>
 
-        <!-- Consul Client -->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-consul-discovery</artifactId>-->
-<!--        </dependency>-->
-
         <!-- Spring Boot Actuator (для health-check) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

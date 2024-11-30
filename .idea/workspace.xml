@@ -4,25 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="lab3">
-      <change afterPath="$PROJECT_DIR$/zuul/src/main/java/com/example/zuul/ZuulConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zuul/src/main/resources/key.p12" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="connect consul &amp; eureka">
+      <change afterPath="$PROJECT_DIR$/config/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/src/main/java/com/example/config/ConfigApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/src/test/java/com/example/config/ConfigApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SOA-lab3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SOA-lab3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigator/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/navigator/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/ConsulService.java" beforeDir="false" afterPath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/ConsulService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/NavigatorApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/NavigatorApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/configuration/Config.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/configuration/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/configuration/WebConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/controllers/NavigatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/controllers/NavigatorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navigator/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/navigator/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/keystore.jks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/shared/target/shared-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/target/shared-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/ApplicationConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/classes/se/ifmo/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/classes/se/ifmo/ApplicationConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/route/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/classes/se/ifmo/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/classes/se/ifmo/ApplicationConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/ejb-module-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/ejb-module-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/shared-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/shared-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/zuul/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul/src/main/resources/application.properties.old" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +74,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="fix" />
+        <option name="rewordedMessage" value="connect consul &amp; eureka" />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="80892a65c91f34536a24313ff750de3fc36cf246" />
+  </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
   </component>
@@ -89,65 +108,69 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.EurekaApplication.executor": "Run",
-    "Maven.ejb-module [clean].executor": "Run",
-    "Maven.ejb-module [install].executor": "Run",
-    "Maven.ejb-module [package].executor": "Run",
-    "Maven.eureka [clean].executor": "Run",
-    "Maven.eureka [package].executor": "Run",
-    "Maven.navigator [clean].executor": "Run",
-    "Maven.navigator [package].executor": "Run",
-    "Maven.route [clean].executor": "Run",
-    "Maven.route [install].executor": "Run",
-    "Maven.route [package].executor": "Run",
-    "Maven.shared [clean].executor": "Run",
-    "Maven.shared [package].executor": "Run",
-    "Maven.web-app [clean].executor": "Run",
-    "Maven.web-app [package].executor": "Run",
-    "Maven.zuul [clean].executor": "Run",
-    "Maven.zuul [package].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.EurekaApplication.executor": "Run",
-    "Spring Boot.NavigatorApplication.executor": "Run",
-    "Spring Boot.ZuulApplication.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "corretto-17",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/andreey/itmo/SOA-lab3/zuul/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15527344",
-    "project.structure.side.proportion": "0.2",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EurekaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ejb-module [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ejb-module [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ejb-module [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.eureka [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.eureka [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.navigator [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.navigator [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.route [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.route [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.route [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shared [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.shared [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.web-app [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.web-app [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.zuul [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.zuul [package].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ConfigApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EurekaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.NavigatorApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ZuulApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/andreey/itmo/SOA-lab3&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15527344&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/zuul/src/main/resources" />
       <recent name="$PROJECT_DIR$/navigator/src/main/resources" />
       <recent name="C:\Users\pomat\Documents\SOA-lab2\route\shared\src\main\java\se\ifmo\model\exception" />
       <recent name="C:\Users\pomat\Documents\SOA-lab2\route\shared\src\main\java\se\ifmo\model" />
-      <recent name="C:\Users\pomat\Documents\SOA-lab2\route\web-app\src\main\java\se\ifmo\controllers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/zuul/src/main/resources" />
@@ -163,7 +186,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ZuulApplication">
+  <component name="RunManager" selected="Spring Boot.NavigatorApplication">
     <configuration name="EurekaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.eureka.EurekaApplication" />
       <module name="eureka" />
@@ -177,6 +200,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ConfigApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="config" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.config.ConfigApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EurekaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="eureka" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eureka.EurekaApplication" />
@@ -185,7 +217,8 @@
       </method>
     </configuration>
     <configuration name="NavigatorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="corretto-11" />
+      <option name="ACTIVE_PROFILES" value="dev" />
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="navigator" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ru.ifmo.NavigatorApplication" />
@@ -200,15 +233,17 @@
       </method>
     </configuration>
     <configuration name="ZuulApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="zuul" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.zuul.ZuulApplication" />
-      <option name="VM_PARAMETERS" value="-Djavax.net.debug=ssl,trustmanager" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.EurekaApplication" />
+      <item itemvalue="Spring Boot.ConfigApplication" />
       <item itemvalue="Spring Boot.EurekaApplication" />
       <item itemvalue="Spring Boot.ZuulApplication" />
       <item itemvalue="Spring Boot.NavigatorApplication" />
@@ -243,6 +278,7 @@
       <workItem from="1732900536815" duration="47000" />
       <workItem from="1732900808836" duration="17219000" />
       <workItem from="1732924294822" duration="22406000" />
+      <workItem from="1733096591683" duration="5000" />
     </task>
     <task id="LOCAL-00001" summary="fix issues">
       <option name="closed" value="true" />
@@ -268,7 +304,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732933151231</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="connect consul &amp; eureka">
+      <option name="closed" value="true" />
+      <created>1733086812677</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733086812677</updated>
+    </task>
+    <task id="LOCAL-00005" summary="connect consul &amp; eureka">
+      <option name="closed" value="true" />
+      <created>1733086819234</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733086819234</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,11 +346,24 @@
     <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
     <option featureType="dependencySupport" implementationName="java:jakarta.faces:jakarta.faces-api" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix issues" />
     <MESSAGE value="add readme" />
+    <MESSAGE value="fix" />
     <MESSAGE value="lab3" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab3" />
+    <MESSAGE value="connect consul &amp; eureka" />
+    <option name="LAST_COMMIT_MESSAGE" value="connect consul &amp; eureka" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -309,6 +374,16 @@
           <properties field="name" class="de.gre90r.jaxwsserver.model.Location" />
           <option name="temporary" value="true" />
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/controllers/NavigatorController.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/controllers/NavigatorController.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
