@@ -34,7 +34,7 @@ public class ApplicationConfig extends Application {
                         "Address": "localhost",
                         "Port": 8282,
                         "Check": {
-                            "HTTP": "http://localhost:8282/web-app-1.0-SNAPSHOT/api/routes",
+                            "HTTP": "http://localhost:8282/route/api/routes",
                             "Interval": "10s"
                         }
                     }

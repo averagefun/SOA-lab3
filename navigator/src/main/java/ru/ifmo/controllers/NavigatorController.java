@@ -26,7 +26,7 @@ import ru.ifmo.models.Route;
 public class NavigatorController {
 
     private static final Logger logger = LoggerFactory.getLogger(NavigatorController.class);
-    private static final String ROUTE_SERVICE_URL = "http://zuul/route/api/routes";
+    private static final String ROUTE_SERVICE_URL = "https://zuul/route/api/routes";
 
     @Autowired
     private RestTemplate restTemplate;
