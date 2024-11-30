@@ -1,5 +1,8 @@
 package se.ifmo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -14,9 +17,6 @@ import se.ifmo.ejb.RouteServiceRemote;
 import se.ifmo.model.Location;
 import se.ifmo.model.Route;
 import se.ifmo.model.exception.RouteNotFoundException;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Stateless
 public class RouteServiceBean implements RouteServiceRemote {

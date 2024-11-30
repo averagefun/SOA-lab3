@@ -22,7 +22,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-
 		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -43,16 +42,14 @@
 			<version>2.0.0</version>
 		</dependency>
 
-
 		<!-- PostgreSQL JDBC Driver -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>42.5.0</version>
 		</dependency>
+
 	</dependencies>
-
-
 	<build>
 		<plugins>
 			<plugin>

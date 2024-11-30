@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/eureka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/route/ejb-module/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/route/ejb-module/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/route/shared/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/route/shared/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/route/web-app/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/route/web-app/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zuul/src/main/java" charset="UTF-8" />
   </component>
 </project>

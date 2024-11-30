@@ -1,0 +1,4 @@
+se/ifmo/model/Location.class
+se/ifmo/model/Coordinates.class
+se/ifmo/model/Route.class
+se/ifmo/model/exception/RouteNotFoundException.class

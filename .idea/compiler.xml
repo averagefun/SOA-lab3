@@ -10,6 +10,8 @@
         <module name="web-app" />
         <module name="shared" />
         <module name="ejb-module" />
+        <module name="zuul" />
+        <module name="eureka" />
       </profile>
       <profile name="Annotation profile for spring-mvc-navigator" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -19,8 +21,22 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
         </processorPath>
         <module name="navigator-service" />
+      </profile>
+      <profile name="Annotation profile for navigator" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar" />
+        </processorPath>
         <module name="navigator" />
       </profile>
     </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="eureka" options="" />
+      <module name="zuul" options="" />
+    </option>
   </component>
 </project>

@@ -1,18 +1,24 @@
 package ru.ifmo.controllers;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
-import ru.ifmo.models.Route;
-
 import java.net.URI;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
+import ru.ifmo.models.Route;
 
 @RestController
 @RequestMapping("/navigator")
@@ -20,7 +26,7 @@ import java.util.Optional;
 public class NavigatorController {
 
     private static final Logger logger = LoggerFactory.getLogger(NavigatorController.class);
-    private static final String FIRST_SERVICE_BASE_URL = "https://localhost:8283/route/routes";
+    private static final String ROUTE_SERVICE_URL = "http://zuul/route/api/routes";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -43,7 +49,7 @@ public class NavigatorController {
 
         try {
             // Построение URI с параметрами фильтрации
-            UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(FIRST_SERVICE_BASE_URL)
+            UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(ROUTE_SERVICE_URL)
                     .queryParam("fromLocationId", idFrom)
                     .queryParam("toLocationId", idTo)
                     .queryParam("page", 1)
@@ -108,7 +114,7 @@ public class NavigatorController {
 
         try {
             // Построение URI с параметрами фильтрации и сортировки
-            UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(FIRST_SERVICE_BASE_URL)
+            UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(ROUTE_SERVICE_URL)
                     .queryParam("fromLocationId", idFrom)
                     .queryParam("toLocationId", idTo)
                     .queryParam("sort", orderBy)

@@ -6,6 +6,8 @@
       <list>
         <option value="$PROJECT_DIR$/route/pom.xml" />
         <option value="$PROJECT_DIR$/navigator/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/zuul/pom.xml" />
       </list>
     </option>
   </component>

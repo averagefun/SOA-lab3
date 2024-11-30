@@ -1,0 +1,23 @@
+spring.application.name=zuul
+
+# ???? Zuul Proxy
+server.port=7070
+
+# Eureka Configuration
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+eureka.client.fetch-registry=true
+ribbon.eureka.enabled=true
+#navigator-service.ribbon.eureka.enabled=true
+logging.level.com.netflix.loadbalancer=DEBUG
+
+## Consul Configuration (??? route-service)
+#spring.cloud.consul.host=localhost
+#spring.cloud.consul.port=8500
+#spring.cloud.consul.discovery.enabled=true
+
+# Zuul ????????
+zuul.routes.navigator.path=/navigator/**
+zuul.routes.navigator.serviceId=navigator-service
+zuul.routes.route.path=/route/**
+zuul.routes.route.url=http://localhost:9091/ # ??????? URL route-service
+

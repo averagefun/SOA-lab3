@@ -40,7 +40,6 @@ public class RoutesResource {
         return Response.ok(entity).build();
     }
 
-
     /**
      * Добавление нового маршрута.
      *

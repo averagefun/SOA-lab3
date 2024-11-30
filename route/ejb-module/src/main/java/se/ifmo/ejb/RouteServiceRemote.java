@@ -1,15 +1,13 @@
 package se.ifmo.ejb;
 
-import se.ifmo.model.Route;
-import se.ifmo.model.exception.RouteNotFoundException;
-
 import java.util.List;
+
+import se.ifmo.model.Route;
 
 public interface RouteServiceRemote {
     Route addRoute(Route route);
 
-    Route updateRoute(long id, Route updatedRoute) throws RouteNotFoundException;
-
+    Route updateRoute(long id, Route updatedRoute);
     List<Route> getAllRoutes(
             int page,
             int size,
@@ -30,12 +28,11 @@ public interface RouteServiceRemote {
             Integer toZ,
             String toName
     );
-    Route getRouteById(long id) throws RouteNotFoundException;
-    void deleteRoute(long id) throws RouteNotFoundException;
 
-    Route getRouteWithMaxFrom() throws RouteNotFoundException;
+    Route getRouteById(long id);
 
+    void deleteRoute(long id);
+
+    Route getRouteWithMaxFrom();
     Long getCountOfRoutesWithDistanceLowerThan(double value);
-
-
 }
