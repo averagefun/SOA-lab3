@@ -31,5 +31,25 @@
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.sun.xml.messaging.saaj</groupId>
+            <artifactId>saaj-impl</artifactId>
+            <version>3.0.1</version> <!-- или актуальная на данный момент -->
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
+            <version>3.0.0</version> <!-- или актуальная -->
+        </dependency>
+
+        <!-- (При необходимости) JAX-WS RI (Runtime) -->
+        <!-- Это может потребоваться, если вы собираетесь использовать wsimport или
+             полную реализацию на стороне клиента -->
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>rt</artifactId>
+            <version>4.0.0</version> <!-- или актуальная -->
+        </dependency>
     </dependencies>
 </project>

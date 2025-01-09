@@ -13,14 +13,21 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 @Data
 @Entity
 @Table(name = "routes")
-public class Route {
+public class Route implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

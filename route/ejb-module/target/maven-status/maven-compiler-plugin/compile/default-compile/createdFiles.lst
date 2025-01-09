@@ -1,2 +1,2 @@
-se/ifmo/ejb/RouteServiceRemote.class
-se/ifmo/RouteServiceBean.class
+se\ifmo\RouteServiceBean.class
+se\ifmo\ejb\RouteServiceRemote.class

@@ -8,8 +8,13 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 @Data
 @Entity
 @Table(name = "locations", uniqueConstraints = @UniqueConstraint(columnNames = {"name", "x", "y", "z"}))

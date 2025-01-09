@@ -1,3 +1,8 @@
-/Users/andreey/itmo/SOA-lab3/route/web-app/src/main/java/se/ifmo/ApplicationConfig.java
-/Users/andreey/itmo/SOA-lab3/route/web-app/src/main/java/se/ifmo/configuration/CorsFilter.java
-/Users/andreey/itmo/SOA-lab3/route/web-app/src/main/java/se/ifmo/controllers/RoutesResource.java
+C:\Users\pomat\Documents\SOA-lab3\route\web-app\src\main\java\se\ifmo\soap\RoutesWebService.java
+C:\Users\pomat\Documents\SOA-lab3\route\web-app\src\main\java\se\ifmo\configuration\CorsFilter.java
+C:\Users\pomat\Documents\SOA-lab3\route\web-app\src\main\java\se\ifmo\exceptions\RouteNotFoundSoapException.java
+C:\Users\pomat\Documents\SOA-lab3\route\web-app\src\main\java\se\ifmo\SSLUtil.java
+C:\Users\pomat\Documents\SOA-lab3\route\web-app\src\main\java\se\ifmo\ApplicationConfig.java
+C:\Users\pomat\Documents\SOA-lab3\route\web-app\src\main\java\se\ifmo\controllers\RoutesResource.java
+C:\Users\pomat\Documents\SOA-lab3\route\web-app\src\main\java\se\ifmo\SOAPClientGetAllRoutes.java
+C:\Users\pomat\Documents\SOA-lab3\route\web-app\src\main\java\se\ifmo\SOAPClientAddRoute.java

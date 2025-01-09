@@ -8,7 +8,7 @@ import java.util.Set;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
-import se.ifmo.controllers.RoutesResource;
+import se.ifmo.soap.RoutesWebService;
 
 @ApplicationPath("/api")
 public class ApplicationConfig extends Application {
@@ -16,13 +16,13 @@ public class ApplicationConfig extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         Set<Class<?>> resources = new HashSet<>();
-        resources.add(RoutesResource.class);
+        resources.add(RoutesWebService.class);
         return resources;
     }
 
-    public ApplicationConfig() {
-        registerServiceInConsul();
-    }
+//    public ApplicationConfig() {
+//        registerServiceInConsul();
+//    }
 
     private void registerServiceInConsul() {
         try {
