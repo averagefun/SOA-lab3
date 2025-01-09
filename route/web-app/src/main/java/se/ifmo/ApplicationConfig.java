@@ -27,18 +27,16 @@ public class ApplicationConfig extends Application {
     private void registerServiceInConsul() {
         try {
             String consulUrl = "http://localhost:8500/v1/agent/service/register";
-            String serviceDefinition = """
-                    {
-                        "ID": "web-app",
-                        "Name": "web-app",
-                        "Address": "localhost",
-                        "Port": 8282,
-                        "Check": {
-                            "HTTP": "http://localhost:8282/route/api/routes",
-                            "Interval": "10s"
-                        }
-                    }
-                    """;
+            String serviceDefinition = "{"
+                    + "\"ID\": \"web-app\","
+                    + "\"Name\": \"web-app\","
+                    + "\"Address\": \"localhost\","
+                    + "\"Port\": 8284,"
+                    + "\"Check\": {"
+                    + "    \"HTTP\": \"http://localhost:8284/route/api/routes\","
+                    + "    \"Interval\": \"10s\""
+                    + "}"
+                    + "}";
 
             URL url = new URL(consulUrl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
