@@ -4,42 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="fix config">
-      <change afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/SOAPClientAddRoute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/SOAPClientGetAllRoutes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/exceptions/RouteNotFoundSoapException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/soap/RoutesWebService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2f31aa20-fbd0-4ac8-b9d3-7e58e13d80b8.xml" beforeDir="false" />
+    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="rework to soap">
+      <change afterPath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/LocalDateAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/SOAPClientGetAllRoutesMinimal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/ejb-module/src/main/java/se/ifmo/RouteServiceBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/src/main/java/se/ifmo/RouteServiceBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/ejb-module/target/classes/se/ifmo/RouteServiceBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/classes/se/ifmo/RouteServiceBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/ejb-module/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/ejb-module/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/shared/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/Coordinates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/shared/target/classes/se/ifmo/model/Coordinates.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/target/classes/se/ifmo/model/Coordinates.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/shared/target/classes/se/ifmo/model/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/target/classes/se/ifmo/model/Location.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/shared/target/classes/se/ifmo/model/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/target/classes/se/ifmo/model/Route.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/shared/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/shared/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/shared/target/shared-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/target/shared-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/ApplicationConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/controllers/RoutesResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/controllers/RoutesResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/classes/se/ifmo/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/classes/se/ifmo/ApplicationConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/classes/se/ifmo/controllers/RoutesResource$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/classes/se/ifmo/controllers/RoutesResource.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/SOAPClientAddRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/SOAPClientAddRoute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/SOAPClientGetAllRoutes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/soap/RoutesWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/soap/RoutesWebService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/classes/se/ifmo/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/classes/se/ifmo/ApplicationConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/classes/se/ifmo/controllers/RoutesResource$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/classes/se/ifmo/controllers/RoutesResource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/angus-activation-2.0.0.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/ejb-module-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/ejb-module-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/jakarta.xml.bind-api-4.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/jaxb-core-4.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/jaxb-runtime-4.0.2.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/shared-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/shared-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/txw2-4.0.2.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +185,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SOAPClientAddRoute">
+  <component name="RunManager" selected="Application.SOAPClientGetAllRoutes">
     <configuration name="SOAPClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.ifmo.SOAPClient" />
       <module name="web-app" />
@@ -226,6 +214,19 @@
     </configuration>
     <configuration name="SOAPClientGetAllRoutes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.ifmo.SOAPClientGetAllRoutes" />
+      <module name="web-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.ifmo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SOAPClientGetAllRoutesMinimal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="se.ifmo.SOAPClientGetAllRoutesMinimal" />
       <module name="web-app" />
       <extension name="coverage">
         <pattern>
@@ -286,22 +287,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NavigatorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="ACTIVE_PROFILES" value="dev" />
-      <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <module name="navigator" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.ifmo.NavigatorApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.ifmo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ZuulApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -315,20 +300,20 @@
       <item itemvalue="Application.SOAPClient" />
       <item itemvalue="Application.SOAPClientAddRoute" />
       <item itemvalue="Application.SOAPClientGetAllRoutes" />
+      <item itemvalue="Application.SOAPClientGetAllRoutesMinimal" />
       <item itemvalue="Application.TestGetAllRoutes" />
       <item itemvalue="Spring Boot.ConfigApplication" />
       <item itemvalue="Spring Boot.EurekaApplication" />
       <item itemvalue="Spring Boot.ZuulApplication" />
       <item itemvalue="Spring Boot.NavigatorApplication (instance 2)" />
-      <item itemvalue="Spring Boot.NavigatorApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SOAPClientAddRoute" />
         <item itemvalue="Application.SOAPClientGetAllRoutes" />
+        <item itemvalue="Application.SOAPClientAddRoute" />
+        <item itemvalue="Application.SOAPClientGetAllRoutesMinimal" />
         <item itemvalue="Application.SOAPClient" />
         <item itemvalue="Application.TestGetAllRoutes" />
-        <item itemvalue="Spring Boot.NavigatorApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -426,7 +411,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736447776073</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="rework to soap">
+      <option name="closed" value="true" />
+      <created>1736464291416</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1736464291416</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,7 +463,8 @@
     <MESSAGE value="lab3" />
     <MESSAGE value="connect consul &amp; eureka" />
     <MESSAGE value="fix config" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix config" />
+    <MESSAGE value="rework to soap" />
+    <option name="LAST_COMMIT_MESSAGE" value="rework to soap" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

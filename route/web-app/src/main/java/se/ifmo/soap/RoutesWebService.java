@@ -49,7 +49,28 @@ public class RoutesWebService {
             @WebParam(name = "toZ") Integer toZ,
             @WebParam(name = "toName") String toName
     ) {
-        return routeService.getAllRoutes(
+        StringBuilder logBuilder = new StringBuilder("Starting getAllRoutes with parameters: \n");
+        logBuilder.append("page=").append(page).append("\n")
+                .append("size=").append(size).append("\n")
+                .append("sortParams=").append(sortParams).append("\n")
+                .append("nameFilter=").append(nameFilter).append("\n")
+                .append("fromLocationId=").append(fromLocationId).append("\n")
+                .append("toLocationId=").append(toLocationId).append("\n")
+                .append("minDistance=").append(minDistance).append("\n")
+                .append("maxDistance=").append(maxDistance).append("\n")
+                .append("coordinatesX=").append(coordinatesX).append("\n")
+                .append("coordinatesY=").append(coordinatesY).append("\n")
+                .append("fromX=").append(fromX).append("\n")
+                .append("fromY=").append(fromY).append("\n")
+                .append("fromZ=").append(fromZ).append("\n")
+                .append("fromName=").append(fromName).append("\n")
+                .append("toX=").append(toX).append("\n")
+                .append("toY=").append(toY).append("\n")
+                .append("toZ=").append(toZ).append("\n")
+                .append("toName=").append(toName).append("\n");
+
+        System.out.println(logBuilder);
+        List<Route> routes = routeService.getAllRoutes(
                 page,
                 size,
                 sortParams,
@@ -69,6 +90,8 @@ public class RoutesWebService {
                 toZ,
                 toName
         );
+        System.out.println("Get routes " + routes);
+        return routes;
     }
 
     /**
@@ -82,8 +105,9 @@ public class RoutesWebService {
         if (route == null) {
             throw new IllegalArgumentException("Route cannot be null");
         }
-        System.out.println("Route: " + route);
-        return routeService.addRoute(route);
+        Route addedRoute = routeService.addRoute(route);
+        System.out.println("Route added: " + addedRoute);
+        return addedRoute;
     }
 
     /**

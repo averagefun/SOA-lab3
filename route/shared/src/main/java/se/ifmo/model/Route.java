@@ -17,6 +17,7 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -42,6 +43,7 @@ public class Route implements Serializable {
     @Embedded
     private Coordinates coordinates;
 
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     private LocalDate creationDate; // Генерируется автоматически
 
     @ManyToOne(optional = true)
