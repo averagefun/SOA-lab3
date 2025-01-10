@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.ifmo.se/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soap:addRoute>
+         <!--Optional:-->
+         <route>
+
+            <name>full</name>
+            <!--Optional:-->
+            <coordinates>
+               <!--Optional:-->
+               <x>12</x>
+               <!--Optional:-->
+               <y>27</y>
+            </coordinates>
+            <!--Optional:-->
+            <from>
+               <x>1</x>
+               <y>0</y>
+               <z>-1</z>
+               <!--Optional:-->
+               <name>lomo</name>
+            </from>
+            <!--Optional:-->
+            <to>
+               <x>4</x>
+               <y>6</y>
+               <z>7</z>
+               <!--Optional:-->
+               <name>Kronva</name>
+            </to>
+            <!--Optional:-->
+            <distance>229</distance>
+         </route>
+      </soap:addRoute>
+   </soapenv:Body>
+</soapenv:Envelope>

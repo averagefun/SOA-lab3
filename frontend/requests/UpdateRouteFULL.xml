@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.ifmo.se/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soap:updateRoute>
+         <id>19</id>
+         <!--Optional:-->
+         <updatedRoute>
+            <name>VIKA</name>
+            <!--Optional:-->
+            <coordinates>
+               <!--Optional:-->
+               <x>88</x>
+               <!--Optional:-->
+               <y>99</y>
+            </coordinates>
+            <from>
+               <x>0</x>
+               <y>0</y>
+               <z>0</z>
+               <name>GODAM</name>
+            </from>
+            <to>
+               <x>6</x>
+               <y>6</y>
+               <z>6</z>
+               <name>SOBAKA</name>
+            </to>
+            <distance>666</distance>
+         </updatedRoute>
+      </soap:updateRoute>
+   </soapenv:Body>
+</soapenv:Envelope>

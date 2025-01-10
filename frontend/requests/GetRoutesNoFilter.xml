@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.ifmo.se/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soap:getAllRoutes>
+         <page>1</page>
+         <size>2</size>
+      </soap:getAllRoutes>
+   </soapenv:Body>
+</soapenv:Envelope>

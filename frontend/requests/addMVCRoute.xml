@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.ifmo.se/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soap:addRoute>
+         <!--Optional:-->
+         <route>
+            <name>Vova</name>
+            <!--Optional:-->
+            <coordinates>
+               <!--Optional:-->
+               <x>1</x>
+               <!--Optional:-->
+               <y>3</y>
+            </coordinates>
+            <!--Optional:-->
+            <distance>166</distance>
+         </route>
+      </soap:addRoute>
+   </soapenv:Body>
+</soapenv:Envelope>

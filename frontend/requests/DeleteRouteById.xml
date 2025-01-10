@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.ifmo.se/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soap:deleteRoute>
+         <id>22</id>
+      </soap:deleteRoute>
+   </soapenv:Body>
+</soapenv:Envelope>

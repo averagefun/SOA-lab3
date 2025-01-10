@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.ifmo.se/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <soap:getAllRoutes>
+         <page>1</page>
+         <size>5</size>
+         <!--Optional:-->
+         <nameFilter>noLoca</nameFilter>
+         <minDistance>10</minDistance>
+      </soap:getAllRoutes>
+   </soapenv:Body>
+</soapenv:Envelope>
