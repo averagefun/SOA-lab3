@@ -28,7 +28,7 @@ import java.time.LocalDate;
 @Data
 @Entity
 @Table(name = "routes")
-public class Route implements Serializable {
+public class Route {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

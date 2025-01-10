@@ -94,11 +94,9 @@ public class SOAPClientGetAllRoutes {
 
         // Добавляем обязательные параметры page и size
         getAllRoutesElement
-                .addChildElement("page", servicePrefix)
-                .addTextNode("1");
+                .addChildElement("page").addTextNode("1");
         getAllRoutesElement
-                .addChildElement("size", servicePrefix)
-                .addTextNode("2");
+                .addChildElement("size").addTextNode("2");
 
         // Сохраняем сообщение
         soapMessage.saveChanges();

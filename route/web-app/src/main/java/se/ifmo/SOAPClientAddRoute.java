@@ -127,14 +127,9 @@ public class SOAPClientAddRoute {
         coordinates.addChildElement("x").addTextNode("100");
         coordinates.addChildElement("y").addTextNode("200");
 
-        // (4) <creationDate> (если хотите оставить пустым)
-        // Если поле creationDate в WSDL допускает minOccurs="0", можно удалить тег.
-        // Иначе оставим пустым:
-        routeElement.addChildElement("creationDate");
 
         // (5) <from> (если опционален, можно убрать; здесь оставим для примера)
         SOAPElement from = routeElement.addChildElement("from");
-        from.addChildElement("id").addTextNode("0");
         from.addChildElement("x").addTextNode("10");
         from.addChildElement("y").addTextNode("20");
         from.addChildElement("z").addTextNode("5");
@@ -142,7 +137,6 @@ public class SOAPClientAddRoute {
 
         // (6) <to>
         SOAPElement to = routeElement.addChildElement("to");
-        to.addChildElement("id").addTextNode("0");
         to.addChildElement("x").addTextNode("30");
         to.addChildElement("y").addTextNode("40");
         to.addChildElement("z").addTextNode("6");
