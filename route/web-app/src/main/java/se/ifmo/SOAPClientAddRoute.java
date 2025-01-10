@@ -116,34 +116,31 @@ public class SOAPClientAddRoute {
         // чтобы получилось ровно как в SoapUI: <route>...</route>.
         SOAPElement routeElement = addRouteElement.addChildElement("route");
 
-        // (1) <id>
-        routeElement.addChildElement("id").addTextNode("0");
-
         // (2) <name>
-        routeElement.addChildElement("name").addTextNode("My Test Route");
+        routeElement.addChildElement("name").addTextNode("SOAP");
 
         // (3) <coordinates>
         SOAPElement coordinates = routeElement.addChildElement("coordinates");
-        coordinates.addChildElement("x").addTextNode("100");
-        coordinates.addChildElement("y").addTextNode("200");
+        coordinates.addChildElement("x").addTextNode("1");
+        coordinates.addChildElement("y").addTextNode("8");
 
 
         // (5) <from> (если опционален, можно убрать; здесь оставим для примера)
         SOAPElement from = routeElement.addChildElement("from");
-        from.addChildElement("x").addTextNode("10");
-        from.addChildElement("y").addTextNode("20");
-        from.addChildElement("z").addTextNode("5");
-        from.addChildElement("name").addTextNode("Start Location");
+        from.addChildElement("x").addTextNode("1");
+        from.addChildElement("y").addTextNode("2");
+        from.addChildElement("z").addTextNode("3");
+        from.addChildElement("name").addTextNode("Start");
 
         // (6) <to>
         SOAPElement to = routeElement.addChildElement("to");
-        to.addChildElement("x").addTextNode("30");
-        to.addChildElement("y").addTextNode("40");
+        to.addChildElement("x").addTextNode("4");
+        to.addChildElement("y").addTextNode("5");
         to.addChildElement("z").addTextNode("6");
-        to.addChildElement("name").addTextNode("End Location");
+        to.addChildElement("name").addTextNode("End");
 
         // (7) <distance>
-        routeElement.addChildElement("distance").addTextNode("12.5");
+        routeElement.addChildElement("distance").addTextNode("123");
 
         // Сохраняем SOAPMessage
         soapMessage.saveChanges();

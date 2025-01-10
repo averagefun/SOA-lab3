@@ -9,10 +9,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="web-app" />
         <module name="shared" />
+        <module name="proxy" />
+        <module name="eureka" />
         <module name="ejb-module" />
         <module name="zuul" />
         <module name="config" />
-        <module name="eureka" />
       </profile>
       <profile name="Annotation profile for spring-mvc-navigator" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -42,6 +43,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="config" options="" />
       <module name="eureka" options="" />
+      <module name="proxy" options="-parameters" />
       <module name="zuul" options="" />
     </option>
   </component>

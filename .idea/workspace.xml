@@ -4,30 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="rework to soap">
-      <change afterPath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/LocalDateAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/SOAPClientGetAllRoutesMinimal.java" afterDir="false" />
+    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="delete serializ">
+      <change afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/configuration/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/controllers/RoutesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/RequestCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/SSLUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/xml2json.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/ejb-module/src/main/java/se/ifmo/RouteServiceBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/src/main/java/se/ifmo/RouteServiceBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/ejb-module/target/classes/se/ifmo/RouteServiceBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/classes/se/ifmo/RouteServiceBean.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/shared/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/src/main/java/se/ifmo/model/Route.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/shared/target/classes/se/ifmo/model/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/target/classes/se/ifmo/model/Route.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/shared/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/shared/target/shared-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/target/shared-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/SOAPClientAddRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/SOAPClientAddRoute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/SOAPClientGetAllRoutes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/soap/RoutesWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/soap/RoutesWebService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/angus-activation-2.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/ejb-module-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/ejb-module-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/jakarta.xml.bind-api-4.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/jaxb-core-4.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/jaxb-runtime-4.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/shared-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/shared-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/lib/txw2-4.0.2.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,64 +94,64 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.EurekaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.config [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.ejb-module [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.ejb-module [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.ejb-module [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.eureka [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.eureka [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.navigator [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.navigator [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.navigator [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.navigator [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.route [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.route [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.route [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.shared [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.shared [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.web-app [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.web-app [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.web-app [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.zuul [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.zuul [package].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ConfigApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.EurekaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.NavigatorApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.NavigatorApplicationCopy.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ZuulApplication.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/andreey/itmo/SOA-lab3&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15527344&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.EurekaApplication.executor": "Run",
+    "Maven.config [package].executor": "Run",
+    "Maven.ejb-module [clean].executor": "Run",
+    "Maven.ejb-module [install].executor": "Run",
+    "Maven.ejb-module [package].executor": "Run",
+    "Maven.eureka [clean].executor": "Run",
+    "Maven.eureka [package].executor": "Run",
+    "Maven.navigator [clean].executor": "Run",
+    "Maven.navigator [compile].executor": "Run",
+    "Maven.navigator [install].executor": "Run",
+    "Maven.navigator [package].executor": "Run",
+    "Maven.route [clean].executor": "Run",
+    "Maven.route [install].executor": "Run",
+    "Maven.route [package].executor": "Run",
+    "Maven.shared [clean].executor": "Run",
+    "Maven.shared [package].executor": "Run",
+    "Maven.web-app [clean].executor": "Run",
+    "Maven.web-app [compile].executor": "Run",
+    "Maven.web-app [package].executor": "Run",
+    "Maven.zuul [clean].executor": "Run",
+    "Maven.zuul [package].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ConfigApplication.executor": "Run",
+    "Spring Boot.EurekaApplication.executor": "Run",
+    "Spring Boot.NavigatorApplication.executor": "Run",
+    "Spring Boot.NavigatorApplicationCopy.executor": "Run",
+    "Spring Boot.ZuulApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "corretto-17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/pomat/Documents/SOA-lab3/proxy",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15527344",
+    "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -185,7 +177,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SOAPClientGetAllRoutes">
+  <component name="RunManager" selected="Spring Boot.ProxyApplication">
     <configuration name="SOAPClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.ifmo.SOAPClient" />
       <module name="web-app" />
@@ -287,6 +279,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ProxyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="proxy" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="se.ifmo.proxy.ProxyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ZuulApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -302,6 +301,7 @@
       <item itemvalue="Application.SOAPClientGetAllRoutes" />
       <item itemvalue="Application.SOAPClientGetAllRoutesMinimal" />
       <item itemvalue="Application.TestGetAllRoutes" />
+      <item itemvalue="Spring Boot.ProxyApplication" />
       <item itemvalue="Spring Boot.ConfigApplication" />
       <item itemvalue="Spring Boot.EurekaApplication" />
       <item itemvalue="Spring Boot.ZuulApplication" />
@@ -309,8 +309,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SOAPClientGetAllRoutes" />
         <item itemvalue="Application.SOAPClientAddRoute" />
+        <item itemvalue="Application.SOAPClientGetAllRoutes" />
         <item itemvalue="Application.SOAPClientGetAllRoutesMinimal" />
         <item itemvalue="Application.SOAPClient" />
         <item itemvalue="Application.TestGetAllRoutes" />
@@ -419,7 +419,23 @@
       <option name="project" value="LOCAL" />
       <updated>1736464291416</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add LocalDateAdapter">
+      <option name="closed" value="true" />
+      <created>1736467011953</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1736467011953</updated>
+    </task>
+    <task id="LOCAL-00011" summary="delete serializ">
+      <option name="closed" value="true" />
+      <created>1736506546727</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1736506546727</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,7 +480,9 @@
     <MESSAGE value="connect consul &amp; eureka" />
     <MESSAGE value="fix config" />
     <MESSAGE value="rework to soap" />
-    <option name="LAST_COMMIT_MESSAGE" value="rework to soap" />
+    <MESSAGE value="add LocalDateAdapter" />
+    <MESSAGE value="delete serializ" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete serializ" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -486,7 +504,18 @@
           <line>69</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/xml2json.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.sun.xml.messaging.saaj.soap.ver1_1.Body1_1Impl" memberName="element" />
+        <PinnedItemInfo parentTag="com.sun.org.apache.xerces.internal.dom.ElementNSImpl" memberName="nextSibling" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
