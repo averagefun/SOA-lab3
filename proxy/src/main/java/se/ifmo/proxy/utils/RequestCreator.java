@@ -103,17 +103,25 @@ public class RequestCreator {
         coordinates.addChildElement("x").addTextNode(String.valueOf(route.getCoordinates().getX()));
         coordinates.addChildElement("y").addTextNode(String.valueOf(route.getCoordinates().getY()));
 
-        SOAPElement from = routeElement.addChildElement("from");
-        from.addChildElement("x").addTextNode(String.valueOf(route.getFrom().getX()));
-        from.addChildElement("y").addTextNode(String.valueOf(route.getFrom().getY()));
-        from.addChildElement("z").addTextNode(String.valueOf(route.getFrom().getZ()));
-        from.addChildElement("name").addTextNode(route.getFrom().getName());
+        if (route.getFrom() != null){
+            SOAPElement from = routeElement.addChildElement("from");
+            from.addChildElement("x").addTextNode(String.valueOf(route.getFrom().getX()));
+            from.addChildElement("y").addTextNode(String.valueOf(route.getFrom().getY()));
+            from.addChildElement("z").addTextNode(String.valueOf(route.getFrom().getZ()));
+            if (route.getFrom().getName() != null){
+                from.addChildElement("name").addTextNode(route.getFrom().getName());
+            }
+        }
 
-        SOAPElement to = routeElement.addChildElement("to");
-        to.addChildElement("x").addTextNode(String.valueOf(route.getTo().getX()));
-        to.addChildElement("y").addTextNode(String.valueOf(route.getTo().getY()));
-        to.addChildElement("z").addTextNode(String.valueOf(route.getTo().getZ()));
-        to.addChildElement("name").addTextNode(route.getTo().getName());
+        if (route.getTo() != null) {
+            SOAPElement to = routeElement.addChildElement("to");
+            to.addChildElement("x").addTextNode(String.valueOf(route.getTo().getX()));
+            to.addChildElement("y").addTextNode(String.valueOf(route.getTo().getY()));
+            to.addChildElement("z").addTextNode(String.valueOf(route.getTo().getZ()));
+            if (route.getTo().getName() != null){
+                to.addChildElement("name").addTextNode(route.getTo().getName());
+            }
+        }
 
         routeElement.addChildElement("distance").addTextNode(String.valueOf(route.getDistance()));
     }

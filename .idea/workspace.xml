@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="GetRouteWithMaxFrom created">
-      <change beforePath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/controllers/RoutesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/controllers/RoutesController.java" afterDir="false" />
+    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="add getCountOfRoutesWithDistanceLowerThan">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/RequestCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/RequestCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/xml2json.java" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/xml2json.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -447,7 +446,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736533374554</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add getCountOfRoutesWithDistanceLowerThan">
+      <option name="closed" value="true" />
+      <created>1736536053206</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1736536053206</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +504,8 @@
     <MESSAGE value="create proxy" />
     <MESSAGE value="add update route" />
     <MESSAGE value="GetRouteWithMaxFrom created" />
-    <option name="LAST_COMMIT_MESSAGE" value="GetRouteWithMaxFrom created" />
+    <MESSAGE value="add getCountOfRoutesWithDistanceLowerThan" />
+    <option name="LAST_COMMIT_MESSAGE" value="add getCountOfRoutesWithDistanceLowerThan" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
