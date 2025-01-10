@@ -53,11 +53,24 @@ public class xml2json {
 
         return routes;
     }
-    public static Route parseSoapAddResponse(SOAPMessage soapResponse) throws Exception {
-        // Создаем новый объект Route
+
+    public static Route parseSoapUpdateResponse(SOAPMessage soapResponse) throws Exception {
         Route route = new Route();
 
-        // Получаем корневой элемент из SOAPMessage
+        SOAPBody body = soapResponse.getSOAPBody();
+        Node createdRouteNode = body.getElementsByTagName("updatedRoute").item(0);
+
+        if (!(createdRouteNode instanceof Element createdRouteElement)) {
+            throw new Exception("SOAP response does not contain a update element.");
+        }
+
+        setRouteFields(route, createdRouteElement);
+
+        return route;
+    }
+    public static Route parseSoapAddResponse(SOAPMessage soapResponse) throws Exception {
+        Route route = new Route();
+
         SOAPBody body = soapResponse.getSOAPBody();
         Node createdRouteNode = body.getElementsByTagName("createdRoute").item(0);
 

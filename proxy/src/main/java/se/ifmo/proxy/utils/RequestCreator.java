@@ -31,7 +31,44 @@ public class RequestCreator {
         SOAPBodyElement addRouteElement = body.addBodyElement(addRouteQName);
 
         // <route>
-        SOAPElement routeElement = addRouteElement.addChildElement("route");
+        addRouteToSoap(route, addRouteElement, "route");
+
+        soapMessage.saveChanges();
+        return soapMessage;
+    }
+
+    public static SOAPMessage createUpdateRouteRequest(Route route, Long id) throws Exception {
+        MessageFactory messageFactory = MessageFactory.newInstance();
+        SOAPMessage soapMessage = messageFactory.createMessage();
+
+        SOAPBody body = getSoapBody(soapMessage);
+
+        QName addRouteQName = new QName(SERVICE_URI, "updateRoute", SERVICE_PREFIX);
+        SOAPBodyElement updateRouteElement = body.addBodyElement(addRouteQName);
+        addChildElementWithText(updateRouteElement, "id", String.valueOf(id));
+
+        addRouteToSoap(route, updateRouteElement, "updatedRoute");
+
+        soapMessage.saveChanges();
+        return soapMessage;
+    }
+
+    public static SOAPMessage createDeleteRouteRequest(Long id) throws Exception {
+        MessageFactory messageFactory = MessageFactory.newInstance();
+        SOAPMessage soapMessage = messageFactory.createMessage();
+
+        SOAPBody body = getSoapBody(soapMessage);
+
+        QName addRouteQName = new QName(SERVICE_URI, "deleteRoute", SERVICE_PREFIX);
+        SOAPBodyElement updateRouteElement = body.addBodyElement(addRouteQName);
+        addChildElementWithText(updateRouteElement, "id", String.valueOf(id));
+
+        soapMessage.saveChanges();
+        return soapMessage;
+    }
+
+    private static void addRouteToSoap(Route route, SOAPBodyElement element, String routeName) throws Exception {
+        SOAPElement routeElement = element.addChildElement(routeName);
         routeElement.addChildElement("name").addTextNode(route.getName());
 
         SOAPElement coordinates = routeElement.addChildElement("coordinates");
@@ -51,10 +88,9 @@ public class RequestCreator {
         to.addChildElement("name").addTextNode(route.getTo().getName());
 
         routeElement.addChildElement("distance").addTextNode(String.valueOf(route.getDistance()));
-
-        soapMessage.saveChanges();
-        return soapMessage;
     }
+
+
 
     public static SOAPMessage createSoapGetRoutesRequest(
             int page,

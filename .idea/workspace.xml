@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="delete serializ">
-      <change afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/configuration/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/controllers/RoutesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/RequestCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/SSLUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/xml2json.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="create proxy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/ejb-module-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/shared/target/classes/se/ifmo/model/Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/target/classes/se/ifmo/model/Route.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/shared/target/shared-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/route/shared/target/shared-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/SOAPClientAddRoute.java" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/src/main/java/se/ifmo/SOAPClientAddRoute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/controllers/RoutesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/controllers/RoutesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/RequestCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/RequestCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/xml2json.java" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/xml2json.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -435,7 +424,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736506546727</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="create proxy">
+      <option name="closed" value="true" />
+      <created>1736525671259</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1736525671259</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +479,8 @@
     <MESSAGE value="rework to soap" />
     <MESSAGE value="add LocalDateAdapter" />
     <MESSAGE value="delete serializ" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete serializ" />
+    <MESSAGE value="create proxy" />
+    <option name="LAST_COMMIT_MESSAGE" value="create proxy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -506,8 +504,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/xml2json.java</url>
-          <line>70</line>
+          <line>83</line>
           <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/controllers/RoutesController.java</url>
+          <line>138</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/xml2json.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/controllers/RoutesController.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

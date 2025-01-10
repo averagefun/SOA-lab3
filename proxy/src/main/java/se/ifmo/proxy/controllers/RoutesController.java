@@ -5,6 +5,7 @@ import jakarta.xml.soap.SOAPConnection;
 import jakarta.xml.soap.SOAPConnectionFactory;
 import jakarta.xml.soap.SOAPException;
 import jakarta.xml.soap.SOAPMessage;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,17 +17,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import se.ifmo.model.Route;
-import se.ifmo.model.exception.RouteNotFoundException;
 import se.ifmo.proxy.utils.SSLUtil;
 
 import java.util.List;
 
 import static se.ifmo.proxy.utils.RequestCreator.createAddRouteRequest;
+import static se.ifmo.proxy.utils.RequestCreator.createDeleteRouteRequest;
 import static se.ifmo.proxy.utils.RequestCreator.createSoapGetRouteByIdRequest;
 import static se.ifmo.proxy.utils.RequestCreator.createSoapGetRoutesRequest;
+import static se.ifmo.proxy.utils.RequestCreator.createUpdateRouteRequest;
 import static se.ifmo.proxy.utils.xml2json.parseSoapAddResponse;
 import static se.ifmo.proxy.utils.xml2json.parseSoapGetByIdResponse;
 import static se.ifmo.proxy.utils.xml2json.parseSoapResponse;
+import static se.ifmo.proxy.utils.xml2json.parseSoapUpdateResponse;
 
 @RestController
 @RequestMapping("/routes")
@@ -126,13 +129,36 @@ public class RoutesController {
     }
 
     @PutMapping("/{id}")
-    public void updateRoute(@PathVariable long id, @RequestBody @Valid Route updatedRoute) {
-        // Пустая реализация
+    public ResponseEntity<Route> updateRoute(@PathVariable long id, @RequestBody @Valid Route updatedRoute) {
+        try {
+            SSLUtil.disableSSLVerification();
+            SOAPMessage soapRequest = createUpdateRouteRequest(updatedRoute, id);
+            SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
+            SOAPConnection soapConnection = soapConnectionFactory.createConnection();
+            SOAPMessage soapResponse = soapConnection.call(soapRequest, SERVICE_URL);
+            Route createdRoute = parseSoapUpdateResponse(soapResponse);
+            return ResponseEntity.ok(createdRoute);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     @DeleteMapping("/{id}")
-    public void deleteRoute(@PathVariable long id) {
-        // Пустая реализация
+    public ResponseEntity<String> deleteRoute(@PathVariable long id) {
+        try {
+            SSLUtil.disableSSLVerification();
+            SOAPMessage soapRequest = createDeleteRouteRequest(id);
+            SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
+            SOAPConnection soapConnection = soapConnectionFactory.createConnection();
+            SOAPMessage soapResponse = soapConnection.call(soapRequest, SERVICE_URL);
+            if (soapResponse.getSOAPBody().hasFault()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body("Маршрут с ID " + id + " не найден.");
+            }
+            return ResponseEntity.ok("Маршрут с ID " + id + " успешно удалён.");
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     @GetMapping("/from/max")
