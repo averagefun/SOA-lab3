@@ -23,11 +23,13 @@ import java.util.List;
 
 import static se.ifmo.proxy.utils.RequestCreator.createAddRouteRequest;
 import static se.ifmo.proxy.utils.RequestCreator.createDeleteRouteRequest;
+import static se.ifmo.proxy.utils.RequestCreator.createGetRouteWithMaxFromRequest;
 import static se.ifmo.proxy.utils.RequestCreator.createSoapGetRouteByIdRequest;
 import static se.ifmo.proxy.utils.RequestCreator.createSoapGetRoutesRequest;
 import static se.ifmo.proxy.utils.RequestCreator.createUpdateRouteRequest;
 import static se.ifmo.proxy.utils.xml2json.parseSoapAddResponse;
 import static se.ifmo.proxy.utils.xml2json.parseSoapGetByIdResponse;
+import static se.ifmo.proxy.utils.xml2json.parseSoapGetRouteWithMaxFromResponse;
 import static se.ifmo.proxy.utils.xml2json.parseSoapResponse;
 import static se.ifmo.proxy.utils.xml2json.parseSoapUpdateResponse;
 
@@ -162,8 +164,18 @@ public class RoutesController {
     }
 
     @GetMapping("/from/max")
-    public void getRouteWithMaxFrom() {
-        // Пустая реализация
+    public ResponseEntity<Route> getRouteWithMaxFrom() {
+        try {
+            SSLUtil.disableSSLVerification();
+            SOAPMessage soapRequest = createGetRouteWithMaxFromRequest();
+            SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
+            SOAPConnection soapConnection = soapConnectionFactory.createConnection();
+            SOAPMessage soapResponse = soapConnection.call(soapRequest, SERVICE_URL);
+            Route route = parseSoapGetRouteWithMaxFromResponse(soapResponse);
+            return ResponseEntity.ok(route);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     @GetMapping("/distance/lower/{value}/count")

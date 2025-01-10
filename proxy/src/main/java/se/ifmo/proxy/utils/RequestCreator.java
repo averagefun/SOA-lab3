@@ -53,6 +53,20 @@ public class RequestCreator {
         return soapMessage;
     }
 
+    public static SOAPMessage createGetRouteWithMaxFromRequest() throws Exception{
+
+        MessageFactory messageFactory = MessageFactory.newInstance();
+        SOAPMessage soapMessage = messageFactory.createMessage();
+
+        SOAPBody body = getSoapBody(soapMessage);
+
+        QName addRouteQName = new QName(SERVICE_URI, "getRouteWithMaxFrom", SERVICE_PREFIX);
+        body.addBodyElement(addRouteQName);
+
+        soapMessage.saveChanges();
+        return soapMessage;
+    }
+
     public static SOAPMessage createDeleteRouteRequest(Long id) throws Exception {
         MessageFactory messageFactory = MessageFactory.newInstance();
         SOAPMessage soapMessage = messageFactory.createMessage();
