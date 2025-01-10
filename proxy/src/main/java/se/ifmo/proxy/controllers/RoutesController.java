@@ -23,12 +23,14 @@ import java.util.List;
 
 import static se.ifmo.proxy.utils.RequestCreator.createAddRouteRequest;
 import static se.ifmo.proxy.utils.RequestCreator.createDeleteRouteRequest;
+import static se.ifmo.proxy.utils.RequestCreator.createGetCountOfRoutesWithDistanceLowerThanRequest;
 import static se.ifmo.proxy.utils.RequestCreator.createGetRouteWithMaxFromRequest;
 import static se.ifmo.proxy.utils.RequestCreator.createSoapGetRouteByIdRequest;
 import static se.ifmo.proxy.utils.RequestCreator.createSoapGetRoutesRequest;
 import static se.ifmo.proxy.utils.RequestCreator.createUpdateRouteRequest;
 import static se.ifmo.proxy.utils.xml2json.parseSoapAddResponse;
 import static se.ifmo.proxy.utils.xml2json.parseSoapGetByIdResponse;
+import static se.ifmo.proxy.utils.xml2json.parseSoapGetCountOfRoutesWithDistanceLowerThan;
 import static se.ifmo.proxy.utils.xml2json.parseSoapGetRouteWithMaxFromResponse;
 import static se.ifmo.proxy.utils.xml2json.parseSoapResponse;
 import static se.ifmo.proxy.utils.xml2json.parseSoapUpdateResponse;
@@ -98,7 +100,11 @@ public class RoutesController {
     public ResponseEntity<Route> addRoute(@RequestBody @Valid Route route) {
         try {
             SSLUtil.disableSSLVerification();
-            Route createdRoute = sendRouteAsSOAP(route);
+            SOAPMessage soapRequest = createAddRouteRequest(route);
+            SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
+            SOAPConnection soapConnection = soapConnectionFactory.createConnection();
+            SOAPMessage soapResponse = soapConnection.call(soapRequest, SERVICE_URL);
+            Route createdRoute = parseSoapAddResponse(soapResponse);
             return ResponseEntity.ok(createdRoute);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
@@ -179,14 +185,18 @@ public class RoutesController {
     }
 
     @GetMapping("/distance/lower/{value}/count")
-    public void getCountOfRoutesWithDistanceLowerThan(@PathVariable double value) {
-        // Пустая реализация
-    }
-    private Route sendRouteAsSOAP(Route route) throws Exception {
-        SOAPMessage soapRequest = createAddRouteRequest(route);
-        SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
-        SOAPConnection soapConnection = soapConnectionFactory.createConnection();
-        SOAPMessage soapResponse = soapConnection.call(soapRequest, SERVICE_URL);
-        return parseSoapAddResponse(soapResponse);
+    public ResponseEntity<String> getCountOfRoutesWithDistanceLowerThan(@PathVariable double value) {
+        try {
+            SSLUtil.disableSSLVerification();
+            SOAPMessage soapRequest = createGetCountOfRoutesWithDistanceLowerThanRequest(value);
+            SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
+            SOAPConnection soapConnection = soapConnectionFactory.createConnection();
+            SOAPMessage soapResponse = soapConnection.call(soapRequest, SERVICE_URL);
+            Long count = parseSoapGetCountOfRoutesWithDistanceLowerThan(soapResponse);
+            String jsonResponse = "{\"count\":" + count + "}";
+            return ResponseEntity.ok(jsonResponse);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 }

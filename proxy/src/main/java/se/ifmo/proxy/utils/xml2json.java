@@ -60,7 +60,7 @@ public class xml2json {
         Node createdRouteNode = body.getElementsByTagName("routeWithMaxFrom").item(0);
 
         if (!(createdRouteNode instanceof Element createdRouteElement)) {
-            throw new Exception("SOAP response does not contain a update element.");
+            throw new Exception("SOAP response does not contain a route.");
         }
 
         setRouteFields(route, createdRouteElement);
@@ -82,6 +82,18 @@ public class xml2json {
 
         return route;
     }
+
+    public static Long parseSoapGetCountOfRoutesWithDistanceLowerThan(SOAPMessage soapResponse) throws Exception {
+        SOAPBody body = soapResponse.getSOAPBody();
+        Node countNode = body.getElementsByTagName("countOfRoutes").item(0);
+
+        if (!(countNode instanceof Element countElement)) {
+            throw new Exception("SOAP response does not contain a countOfRoutes element.");
+        }
+
+       return parseLong(countElement.getTextContent());
+    }
+
     public static Route parseSoapAddResponse(SOAPMessage soapResponse) throws Exception {
         Route route = new Route();
 

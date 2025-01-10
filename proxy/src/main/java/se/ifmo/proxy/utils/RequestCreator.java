@@ -81,6 +81,20 @@ public class RequestCreator {
         return soapMessage;
     }
 
+    public static SOAPMessage createGetCountOfRoutesWithDistanceLowerThanRequest(Double value) throws Exception {
+        MessageFactory messageFactory = MessageFactory.newInstance();
+        SOAPMessage soapMessage = messageFactory.createMessage();
+
+        SOAPBody body = getSoapBody(soapMessage);
+
+        QName addRouteQName = new QName(SERVICE_URI, "getCountOfRoutesWithDistanceLowerThan", SERVICE_PREFIX);
+        SOAPBodyElement updateRouteElement = body.addBodyElement(addRouteQName);
+        addChildElementWithText(updateRouteElement, "distance", String.valueOf(value));
+
+        soapMessage.saveChanges();
+        return soapMessage;
+    }
+
     private static void addRouteToSoap(Route route, SOAPBodyElement element, String routeName) throws Exception {
         SOAPElement routeElement = element.addChildElement(routeName);
         routeElement.addChildElement("name").addTextNode(route.getName());
