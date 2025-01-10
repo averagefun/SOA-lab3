@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title>Управление Маршрутами и Навигатором</title>
@@ -8,279 +9,302 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        input, select {
+
+        input,
+        select {
             margin: 5px;
         }
+
         .section {
             margin-bottom: 30px;
         }
+
         table {
             border-collapse: collapse;
             width: 100%;
             margin-top: 10px;
         }
-        table, th, td {
+
+        table,
+        th,
+        td {
             border: 1px solid #ddd;
         }
-        th, td {
+
+        th,
+        td {
             padding: 8px;
             text-align: left;
             vertical-align: top;
         }
+
         fieldset {
             margin: 10px 0;
         }
+
         label {
             display: inline-block;
             margin-bottom: 5px;
         }
-		
     </style>
 </head>
+
 <body>
 
-<h1>Управление Маршрутами и Навигатором</h1>
+    <h1>Управление Маршрутами и Навигатором</h1>
 
-<!-- Раздел для взаимодействия с первым сервисом (управление маршрутами) -->
-<div class="section">
-    <h2>Просмотр Всех Маршрутов</h2>
-    <form id="viewRoutesForm">
-        <label>Страница: <input type="number" name="page" value="1" min="1"></label>
-        <label>Размер: <input type="number" name="size" value="10" min="1"></label>
-        <br>
-        <label>Фильтр по имени: <input type="text" name="nameFilter"></label>
-        <label>ID начальной локации: <input type="number" name="fromLocationId" min="1"></label>
-        <label>ID конечной локации: <input type="number" name="toLocationId" min="1"></label>
-        <br>
-        <label>Мин. расстояние: <input type="number" name="minDistance" step="any"></label>
-        <label>Макс. расстояние: <input type="number" name="maxDistance" step="any"></label>
-        <br>
-        <fieldset>
-            <legend>Координаты</legend>
-            <label>X: <input type="number" name="coordinatesX"></label>
-            <label>Y: <input type="number" name="coordinatesY"></label>
-        </fieldset>
-        <fieldset>
-            <legend>Начальная Локация (from)</legend>
-            <label>Имя: <input type="text" name="fromName"></label>
-            <label>X: <input type="number" name="fromX"></label>
-            <label>Y: <input type="number" name="fromY"></label>
-            <label>Z: <input type="number" name="fromZ"></label>
-        </fieldset>
-        <fieldset>
-            <legend>Конечная Локация (to)</legend>
-            <label>Имя: <input type="text" name="toName"></label>
-            <label>X: <input type="number" name="toX"></label>
-            <label>Y: <input type="number" name="toY"></label>
-            <label>Z: <input type="number" name="toZ"></label>
-        </fieldset>
-		<div id="sortCriteriaContainer">
-            <h3>Критерии сортировки</h3>
-            <div class="sort-criterion">
-                <label>Поле:
-                    <select name="sortField">
-                        <option value="id">ID</option>
-                        <option value="name">Имя</option>
-                        <option value="distance">Расстояние</option>
-                        <option value="coordinates.x">Координаты X</option>
-                        <option value="coordinates.y">Координаты Y</option>
-                        <option value="from.name">From Имя</option>
-                        <option value="from.x">From X</option>
-                        <option value="from.y">From Y</option>
-                        <option value="from.z">From Z</option>
-                        <option value="to.name">To Имя</option>
-                        <option value="to.x">To X</option>
-                        <option value="to.y">To Y</option>
-                        <option value="to.z">To Z</option>
-                    </select>
-                </label>
-                <label>Порядок:
-                    <select name="sortOrder">
-                        <option value="asc">Возрастание</option>
-                        <option value="desc">Убывание</option>
-                    </select>
-                </label>
-                <button type="button" class="moveUpSortCriterionBtn">↑</button>
-                <button type="button" class="moveDownSortCriterionBtn">↓</button>
-                <button type="button" class="removeSortCriterionBtn">Удалить</button>
+    <!-- Раздел для взаимодействия с первым сервисом (управление маршрутами) -->
+    <div class="section">
+        <h2>Просмотр Всех Маршрутов</h2>
+        <form id="viewRoutesForm">
+            <label>Страница: <input type="number" name="page" value="1" min="1"></label>
+            <label>Размер: <input type="number" name="size" value="10" min="1"></label>
+            <br>
+            <label>Фильтр по имени: <input type="text" name="name"></label>
+            <label>ID начальной локации: <input type="number" name="fromLocationId" min="1"></label>
+            <label>ID конечной локации: <input type="number" name="toLocationId" min="1"></label>
+            <br>
+            <label>Мин. расстояние: <input type="number" name="minDistance" step="any"></label>
+            <label>Макс. расстояние: <input type="number" name="maxDistance" step="any"></label>
+            <br>
+            <fieldset>
+                <legend>Координаты</legend>
+                <label>X: <input type="number" name="coordinatesX"></label>
+                <label>Y: <input type="number" name="coordinatesY"></label>
+            </fieldset>
+            <fieldset>
+                <legend>Начальная Локация (from)</legend>
+                <label>Имя: <input type="text" name="fromName"></label>
+                <label>X: <input type="number" name="fromX"></label>
+                <label>Y: <input type="number" name="fromY"></label>
+                <label>Z: <input type="number" name="fromZ"></label>
+            </fieldset>
+            <fieldset>
+                <legend>Конечная Локация (to)</legend>
+                <label>Имя: <input type="text" name="toName"></label>
+                <label>X: <input type="number" name="toX"></label>
+                <label>Y: <input type="number" name="toY"></label>
+                <label>Z: <input type="number" name="toZ"></label>
+            </fieldset>
+            <div id="sortCriteriaContainer">
+                <h3>Критерии сортировки</h3>
+                <div class="sort-criterion">
+                    <label>Поле:
+                        <select name="sortField">
+                            <option value="id">ID</option>
+                            <option value="name">Имя</option>
+                            <option value="distance">Расстояние</option>
+                            <option value="coordinates.x">Координаты X</option>
+                            <option value="coordinates.y">Координаты Y</option>
+                            <option value="from.name">From Имя</option>
+                            <option value="from.x">From X</option>
+                            <option value="from.y">From Y</option>
+                            <option value="from.z">From Z</option>
+                            <option value="to.name">To Имя</option>
+                            <option value="to.x">To X</option>
+                            <option value="to.y">To Y</option>
+                            <option value="to.z">To Z</option>
+                        </select>
+                    </label>
+                    <label>Порядок:
+                        <select name="sortOrder">
+                            <option value="asc">Возрастание</option>
+                            <option value="desc">Убывание</option>
+                        </select>
+                    </label>
+                    <button type="button" class="moveUpSortCriterionBtn">↑</button>
+                    <button type="button" class="moveDownSortCriterionBtn">↓</button>
+                    <button type="button" class="removeSortCriterionBtn">Удалить</button>
+                </div>
             </div>
-        </div>
-		        <button type="button" id="addSortCriterionBtn">Добавить критерий сортировки</button>
-        <br>
-        <button type="submit">Получить Маршруты</button>
-    </form>
-    <div id="routesResult"></div>
-</div>
+            <button type="button" id="addSortCriterionBtn">Добавить критерий сортировки</button>
+            <br>
+            <button type="submit">Получить Маршруты</button>
+        </form>
+        <div id="routesResult"></div>
+    </div>
 
 
-<div class="section">
-    <h2>Добавить Новый Маршрут</h2>
-    <form id="addRouteForm">
-        <label>Имя: <input type="text" name="name" required></label><br>
-        <fieldset>
-            <legend>Координаты</legend>
-            <label>X: <input type="number" name="coordinates_x" required></label>
-            <label>Y: <input type="number" name="coordinates_y" required></label>
-        </fieldset>
-        <fieldset>
-            <legend>Начальная Локация (from)</legend>
-            <label>Имя: <input type="text" name="from_name"></label><br>
-            <label>X: <input type="number" name="from_x" required></label>
-            <label>Y: <input type="number" name="from_y"></label>
-            <label>Z: <input type="number" name="from_z"></label>
-        </fieldset>
-        <fieldset>
-            <legend>Конечная Локация (to)</legend>
-            <label>Имя: <input type="text" name="to_name"></label><br>
-            <label>X: <input type="number" name="to_x" required></label>
-            <label>Y: <input type="number" name="to_y"></label>
-            <label>Z: <input type="number" name="to_z"></label>
-        </fieldset>
-        <label>Расстояние: <input type="number" name="distance" step="any" required></label><br>
-        <button type="submit">Добавить Маршрут</button>
-    </form>
-    <div id="addRouteResult"></div>
-</div>
+    <div class="section">
+        <h2>Добавить Новый Маршрут</h2>
+        <form id="addRouteForm">
+            <label>Имя: <input type="text" name="name" required></label><br>
+            <fieldset>
+                <legend>Координаты</legend>
+                <label>X: <input type="number" name="coordinates_x" required></label>
+                <label>Y: <input type="number" name="coordinates_y" required></label>
+            </fieldset>
+            <fieldset>
+                <legend>Начальная Локация (from)</legend>
+                <label><input type="checkbox" id="includeFromLocation" checked> Указать начальную локацию</label>
+                <div id="fromLocationFields">
+                    <label>Имя: <input type="text" name="from_name"></label><br>
+                    <label>X: <input type="number" name="from_x" required></label>
+                    <label>Y: <input type="number" name="from_y"></label>
+                    <label>Z: <input type="number" name="from_z"></label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Конечная Локация (to)</legend>
+                <label><input type="checkbox" id="includeToLocation" checked> Указать конечную локацию</label>
+                <div id="toLocationFields">
+                    <label>Имя: <input type="text" name="to_name"></label><br>
+                    <label>X: <input type="number" name="to_x" required></label>
+                    <label>Y: <input type="number" name="to_y"></label>
+                    <label>Z: <input type="number" name="to_z"></label>
+                </div>
+            </fieldset>
+            <label>Расстояние: <input type="number" name="distance" step="any" required></label><br>
+            <button type="submit">Добавить Маршрут</button>
+        </form>
+        <div id="addRouteResult"></div>
+    </div>
 
-<div class="section">
-    <h2>Обновить Маршрут</h2>
-    <form id="updateRouteForm">
-        <label>ID Маршрута: <input type="number" name="id" required></label><br>
-        <label>Имя: <input type="text" name="name" required></label><br>
-        <fieldset>
-            <legend>Координаты</legend>
-            <label>X: <input type="number" name="coordinates_x" required></label>
-            <label>Y: <input type="number" name="coordinates_y" required></label>
-        </fieldset>
-        <fieldset>
-            <legend>Начальная Локация (from)</legend>
-            <label>Имя: <input type="text" name="from_name" required></label><br>
-            <label>X: <input type="number" name="from_x" required></label>
-            <label>Y: <input type="number" name="from_y" required></label>
-            <label>Z: <input type="number" name="from_z" required></label>
-        </fieldset>
-        <fieldset>
-            <legend>Конечная Локация (to)</legend>
-            <label>Имя: <input type="text" name="to_name" required></label><br>
-            <label>X: <input type="number" name="to_x" required></label>
-            <label>Y: <input type="number" name="to_y" required></label>
-            <label>Z: <input type="number" name="to_z" required></label>
-        </fieldset>
-        <label>Расстояние: <input type="number" name="distance" step="any" required></label><br>
-        <button type="submit">Обновить Маршрут</button>
-    </form>
-    <div id="updateRouteResult"></div>
-</div>
+    <div class="section">
+        <h2>Обновить Маршрут</h2>
+        <form id="updateRouteForm">
+            <label>ID Маршрута: <input type="number" name="id" required></label><br>
+            <label>Имя: <input type="text" name="name" required></label><br>
+            <fieldset>
+                <legend>Координаты</legend>
+                <label>X: <input type="number" name="coordinates_x" required></label>
+                <label>Y: <input type="number" name="coordinates_y" required></label>
+            </fieldset>
+            <fieldset>
+                <legend>Начальная Локация (from)</legend>
+                <label><input type="checkbox" id="includeFromLocation1" checked> Указать начальную локацию</label>
+                <div id="fromLocationFields1">
+                    <label>Имя: <input type="text" name="from_name"></label><br>
+                    <label>X: <input type="number" name="from_x" required></label>
+                    <label>Y: <input type="number" name="from_y"></label>
+                    <label>Z: <input type="number" name="from_z"></label>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Конечная Локация (to)</legend>
+                <label><input type="checkbox" id="includeToLocation1" checked> Указать конечную локацию</label>
+                <div id="toLocationFields1">
+                    <label>Имя: <input type="text" name="to_name"></label><br>
+                    <label>X: <input type="number" name="to_x" required></label>
+                    <label>Y: <input type="number" name="to_y"></label>
+                    <label>Z: <input type="number" name="to_z"></label>
+                </div>
+            </fieldset>
+            <label>Расстояние: <input type="number" name="distance" step="any" required></label><br>
+            <button type="submit">Обновить Маршрут</button>
+        </form>
+        <div id="updateRouteResult"></div>
+    </div>
 
-<div class="section">
-    <h2>Удалить Маршрут</h2>
-    <form id="deleteRouteForm">
-        <label>ID Маршрута: <input type="number" name="id" required></label>
-        <button type="submit">Удалить Маршрут</button>
-    </form>
-    <div id="deleteRouteResult"></div>
-</div>
+    <div class="section">
+        <h2>Удалить Маршрут</h2>
+        <form id="deleteRouteForm">
+            <label>ID Маршрута: <input type="number" name="id" required></label>
+            <button type="submit">Удалить Маршрут</button>
+        </form>
+        <div id="deleteRouteResult"></div>
+    </div>
 
-<div class="section">
-    <h2>Получить Маршрут по ID</h2>
-    <form id="getRouteByIdForm">
-        <label>ID Маршрута: <input type="number" name="id" required></label>
-        <button type="submit">Получить Маршрут</button>
-    </form>
-    <div id="getRouteByIdResult"></div>
-</div>
+    <div class="section">
+        <h2>Получить Маршрут по ID</h2>
+        <form id="getRouteByIdForm">
+            <label>ID Маршрута: <input type="number" name="id" required></label>
+            <button type="submit">Получить Маршрут</button>
+        </form>
+        <div id="getRouteByIdResult"></div>
+    </div>
 
-<div class="section">
-    <h2>Маршрут с Максимальной "From" Локацией</h2>
-    <button id="getMaxFromRouteBtn">Получить Маршрут</button>
-    <div id="getMaxFromRouteResult"></div>
-</div>
+    <div class="section">
+        <h2>Маршрут с Максимальной "From" Локацией</h2>
+        <button id="getMaxFromRouteBtn">Получить Маршрут</button>
+        <div id="getMaxFromRouteResult"></div>
+    </div>
 
-<div class="section">
-    <h2>Количество Маршрутов с Расстоянием Меньше Заданного</h2>
-    <form id="getRoutesCountForm">
-        <label>Значение Расстояния: <input type="number" name="distance" step="any" required></label>
-        <button type="submit">Получить Количество</button>
-    </form>
-    <div id="getRoutesCountResult"></div>
-</div>
+    <div class="section">
+        <h2>Количество Маршрутов с Расстоянием Меньше Заданного</h2>
+        <form id="getRoutesCountForm">
+            <label>Значение Расстояния: <input type="number" name="distance" step="any" required></label>
+            <button type="submit">Получить Количество</button>
+        </form>
+        <div id="getRoutesCountResult"></div>
+    </div>
 
-<div class="section">
-    <h2>Поиск Маршрута между Локациями</h2>
-    <form id="findRouteForm">
-        <label>ID Начальной Локации: <input type="number" name="idFrom" required></label>
-        <label>ID Конечной Локации: <input type="number" name="idTo" required></label>
-        <label>Кратчайший маршрут:
-            <select name="shortest">
-                <option value="true">Да</option>
-                <option value="false">Нет</option>
-            </select>
-        </label>
-        <button type="submit">Найти Маршрут</button>
-    </form>
-    <div id="findRouteResult"></div>
-</div>
+    <div class="section">
+        <h2>Поиск Маршрута между Локациями</h2>
+        <form id="findRouteForm">
+            <label>ID Начальной Локации: <input type="number" name="idFrom" required></label>
+            <label>ID Конечной Локации: <input type="number" name="idTo" required></label>
+            <label>Кратчайший маршрут:
+                <select name="shortest">
+                    <option value="true">Да</option>
+                    <option value="false">Нет</option>
+                </select>
+            </label>
+            <button type="submit">Найти Маршрут</button>
+        </form>
+        <div id="findRouteResult"></div>
+    </div>
 
-<div class="section">
-    <h2>Поиск Всех Маршрутов между Локациями с Сортировкой</h2>
-    <form id="findRoutesForm">
-        <label>ID Начальной Локации: <input type="number" name="idFrom" required></label>
-        <label>ID Конечной Локации: <input type="number" name="idTo" required></label>
-        <label>Сортировать по:
-            <select name="orderBy">
-                <option value="name">Имя</option>
-                <option value="distance">Расстояние</option>
-            </select>
-        </label>
-        <button type="submit">Найти Маршруты</button>
-    </form>
-    <div id="findRoutesResult"></div>
-</div>
+    <div class="section">
+        <h2>Поиск Всех Маршрутов между Локациями с Сортировкой</h2>
+        <form id="findRoutesForm">
+            <label>ID Начальной Локации: <input type="number" name="idFrom" required></label>
+            <label>ID Конечной Локации: <input type="number" name="idTo" required></label>
+            <label>Сортировать по:
+                <select name="orderBy">
+                    <option value="name">Имя</option>
+                    <option value="distance">Расстояние</option>
+                </select>
+            </label>
+            <button type="submit">Найти Маршруты</button>
+        </form>
+        <div id="findRoutesResult"></div>
+    </div>
 
-<script>
-    const apiBaseUrl = 'https://localhost:7070/route/api';
-	const navigatorBaseUrl = 'https://localhost:7070/navigator/navigator';
+    <script>
+		const apiBaseUrl = 'http://localhost:8080';
+		const navigatorBaseUrl = 'https://localhost:8181/spring-mvc-navigator/navigator';
 
-    // Просмотр Всех Маршрутов
-document.getElementById('viewRoutesForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const params = new URLSearchParams();
+        // Просмотр Всех Маршрутов
+        document.getElementById('viewRoutesForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const params = new URLSearchParams();
 
-    // Собираем критерии сортировки в порядке их расположения
-    const sortCriteria = document.querySelectorAll('#sortCriteriaContainer .sort-criterion');
-    sortCriteria.forEach(criterionDiv => {
-        const field = criterionDiv.querySelector('[name="sortField"]').value;
-        const order = criterionDiv.querySelector('[name="sortOrder"]').value;
-        params.append('sort', field + ',' + order);
-    });
+            // Собираем критерии сортировки в порядке их расположения
+            const sortCriteria = document.querySelectorAll('#sortCriteriaContainer .sort-criterion');
+            sortCriteria.forEach(criterionDiv => {
+                const field = criterionDiv.querySelector('[name="sortField"]').value;
+                const order = criterionDiv.querySelector('[name="sortOrder"]').value;
+                params.append('sort', field + ',' + order);
+            });
 
-    // Собираем остальные параметры фильтрации
-    const formData = new FormData(this);
-    for (const [key, value] of formData.entries()) {
-        if (key !== 'sortField' && key !== 'sortOrder' && value) {
-            params.append(key, value);
-        }
-    }
+            // Собираем остальные параметры фильтрации
+            const formData = new FormData(this);
+            for (const [key, value] of formData.entries()) {
+                if (key !== 'sortField' && key !== 'sortOrder' && value) {
+                    params.append(key, value);
+                }
+            }
 
-    fetch(`${apiBaseUrl}/routes?${params.toString()}`, { method: 'GET' })
-        .then(response => response.json())
-        .then(data => {
-            displayRoutes(data, 'routesResult');
-        })
-        .catch(error => {
-            document.getElementById('routesResult').innerText = 'Ошибка при получении маршрутов.';
-            console.error(error);
+            fetch(`${apiBaseUrl}/routes?${params.toString()}`, { method: 'GET' })
+                .then(response => response.json())
+                .then(data => {
+                    displayRoutes(data, 'routesResult');
+                })
+                .catch(error => {
+                    document.getElementById('routesResult').innerText = 'Ошибка при получении маршрутов.';
+                    console.error(error);
+                });
         });
-});
 
 
 
-    function displayRoutes(routes, elementId) {
-        if (!Array.isArray(routes) || routes.length === 0) {
-            document.getElementById(elementId).innerText = 'Маршруты не найдены.';
-            return;
-        }
-        let html = `
+        function displayRoutes(routes, elementId) {
+            if (!Array.isArray(routes) || routes.length === 0) {
+                document.getElementById(elementId).innerText = 'Маршруты не найдены.';
+                return;
+            }
+            let html = `
         <table>
             <thead>
                 <tr>
@@ -293,8 +317,8 @@ document.getElementById('viewRoutesForm').addEventListener('submit', function(e)
                 </tr>
             </thead>
             <tbody>`;
-        routes.forEach(route => {
-            html += `
+            routes.forEach(route => {
+                html += `
             <tr>
                 <td>${route.id}</td>
                 <td>${route.name}</td>
@@ -306,130 +330,130 @@ document.getElementById('viewRoutesForm').addEventListener('submit', function(e)
                 <td>${formatLocation(route.from)}</td>
                 <td>${formatLocation(route.to)}</td>
             </tr>`;
-        });
-        html += '</tbody></table>';
-        document.getElementById(elementId).innerHTML = html;
-    }
+            });
+            html += '</tbody></table>';
+            document.getElementById(elementId).innerHTML = html;
+        }
 
-    function formatLocation(location) {
-        if (!location) return 'null';
-        return `
+        function formatLocation(location) {
+            if (!location) return 'null';
+            return `
             Имя: ${location.name || 'null'}<br>
-            X: ${location.x || 'null'}, Y: ${location.y || 'null'}, Z: ${location.z || 'null'}
+            X: ${location.x || '0'}
         `;
-    }
+        }
 
-    // Добавить Новый Маршрут
-	document.getElementById('addRouteForm').addEventListener('submit', function(e) {
-			e.preventDefault();
-			const routeData = getRouteFormData(new FormData(this));
-			const errors = validateRouteData(routeData);
+        // Добавить Новый Маршрут
+        document.getElementById('addRouteForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const routeData = getRouteFormData(new FormData(this));
+            const errors = validateRouteData(routeData);
 
-			if (errors.length > 0) {
-				document.getElementById('addRouteResult').innerHTML = errors.join('<br>');
-				return;
-			}
+            if (errors.length > 0) {
+                document.getElementById('addRouteResult').innerHTML = errors.join('<br>');
+                return;
+            }
 
-			fetch(`${apiBaseUrl}/routes`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(routeData)
-			})
-				.then(response => {
-					if (response.ok) {
-						return response.json();
-					}
-					return response.text().then(text => { throw new Error(text) });
-				})
-				.then(data => {
-					document.getElementById('addRouteResult').innerText = `Маршрут добавлен с ID: ${data.id}`;
-				})
-				.catch(error => {
-					document.getElementById('addRouteResult').innerText = 'Ошибка при добавлении маршрута: ' + error.message;
-					console.error(error);
-				});
-		});
-
-    // Обновить Маршрут
-	document.getElementById('updateRouteForm').addEventListener('submit', function(e) {
-			e.preventDefault();
-			const id = this.id.value;
-			const routeData = getRouteFormData(new FormData(this));
-			const errors = validateRouteData(routeData);
-
-			if (errors.length > 0) {
-				document.getElementById('updateRouteResult').innerHTML = errors.join('<br>');
-				return;
-			}
-
-			fetch(`${apiBaseUrl}/routes/${id}`, {
-				method: 'PUT',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(routeData)
-			})
-				.then(response => {
-					if (response.ok) {
-						return response.json();
-					}
-					return response.text().then(text => { throw new Error(text) });
-				})
-				.then(data => {
-					document.getElementById('updateRouteResult').innerText = `Маршрут с ID: ${data.id} обновлен.`;
-				})
-				.catch(error => {
-					document.getElementById('updateRouteResult').innerText = 'Ошибка при обновлении маршрута: ' + error.message;
-					console.error(error);
-				});
-		});
-
-    // Удалить Маршрут
-    document.getElementById('deleteRouteForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const id = this.id.value;
-        fetch(`${apiBaseUrl}/routes/${id}`, { method: 'DELETE' })
-            .then(response => {
-                if (response.ok) {
-                    document.getElementById('deleteRouteResult').innerText = `Маршрут с ID: ${id} удален.`;
-                } else {
+            fetch(`${apiBaseUrl}/routes`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(routeData)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
                     return response.text().then(text => { throw new Error(text) });
-                }
-            })
-            .catch(error => {
-                document.getElementById('deleteRouteResult').innerText = 'Ошибка при удалении маршрута: ' + error.message;
-                console.error(error);
-            });
-    });
+                })
+                .then(data => {
+                    document.getElementById('addRouteResult').innerText = `Маршрут добавлен с ID: ${data.id}`;
+                })
+                .catch(error => {
+                    document.getElementById('addRouteResult').innerText = 'Ошибка при добавлении маршрута: ' + error.message;
+                    console.error(error);
+                });
+        });
 
-    // Получить Маршрут по ID
-    document.getElementById('getRouteByIdForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const id = this.id.value;
-        fetch(`${apiBaseUrl}/routes/${id}`, { method: 'GET' })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                return response.text().then(text => { throw new Error(text) });
-            })
-            .then(data => {
-                displayRouteDetails(data, 'getRouteByIdResult');
-            })
-            .catch(error => {
-                document.getElementById('getRouteByIdResult').innerText = 'Ошибка при получении маршрута: ' + error.message;
-                console.error(error);
-            });
-    });
+        // Обновить Маршрут
+        document.getElementById('updateRouteForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const id = this.id.value;
+            const routeData = getRouteFormData1(new FormData(this));
+            const errors = validateRouteData(routeData);
 
-    function displayRouteDetails(route, elementId) {
-        if (!route || !route.id) {
-            document.getElementById(elementId).innerText = 'Маршрут не найден.';
-            return;
-        }
-        let html = `
+            if (errors.length > 0) {
+                document.getElementById('updateRouteResult').innerHTML = errors.join('<br>');
+                return;
+            }
+
+            fetch(`${apiBaseUrl}/routes/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(routeData)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    return response.text().then(text => { throw new Error(text) });
+                })
+                .then(data => {
+                    document.getElementById('updateRouteResult').innerText = `Маршрут с ID: ${data.id} обновлен.`;
+                })
+                .catch(error => {
+                    document.getElementById('updateRouteResult').innerText = 'Ошибка при обновлении маршрута: ' + error.message;
+                    console.error(error);
+                });
+        });
+
+        // Удалить Маршрут
+        document.getElementById('deleteRouteForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const id = this.id.value;
+            fetch(`${apiBaseUrl}/routes/${id}`, { method: 'DELETE' })
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('deleteRouteResult').innerText = `Маршрут с ID: ${id} удален.`;
+                    } else {
+                        return response.text().then(text => { throw new Error(text) });
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('deleteRouteResult').innerText = 'Ошибка при удалении маршрута: ' + error.message;
+                    console.error(error);
+                });
+        });
+
+        // Получить Маршрут по ID
+        document.getElementById('getRouteByIdForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const id = this.id.value;
+            fetch(`${apiBaseUrl}/routes/${id}`, { method: 'GET' })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    return response.text().then(text => { throw new Error(text) });
+                })
+                .then(data => {
+                    displayRouteDetails(data, 'getRouteByIdResult');
+                })
+                .catch(error => {
+                    document.getElementById('getRouteByIdResult').innerText = 'Ошибка при получении маршрута: ' + error.message;
+                    console.error(error);
+                });
+        });
+
+        function displayRouteDetails(route, elementId) {
+            if (!route || !route.id) {
+                document.getElementById(elementId).innerText = 'Маршрут не найден.';
+                return;
+            }
+            let html = `
         <h3>Маршрут ID: ${route.id}</h3>
         <p><strong>Имя:</strong> ${route.name}</p>
         <p><strong>Расстояние:</strong> ${route.distance}</p>
@@ -441,185 +465,241 @@ document.getElementById('viewRoutesForm').addEventListener('submit', function(e)
         <p><strong>Начальная Локация:</strong><br>${formatLocation(route.from)}</p>
         <p><strong>Конечная Локация:</strong><br>${formatLocation(route.to)}</p>
         `;
-        document.getElementById(elementId).innerHTML = html;
-    }
+            document.getElementById(elementId).innerHTML = html;
+        }
 
-    // Маршрут с Максимальной "From" Локацией
-    document.getElementById('getMaxFromRouteBtn').addEventListener('click', function() {
-        fetch(`${apiBaseUrl}/routes/from/max`, { method: 'GET' })
-            .then(response => response.json())
-            .then(data => {
-                displayRouteDetails(data, 'getMaxFromRouteResult');
-            })
-            .catch(error => {
-                document.getElementById('getMaxFromRouteResult').innerText = 'Ошибка при получении маршрута.';
-                console.error(error);
-            });
-    });
+        // Маршрут с Максимальной "From" Локацией
+        document.getElementById('getMaxFromRouteBtn').addEventListener('click', function () {
+            fetch(`${apiBaseUrl}/routes/from/max`, { method: 'GET' })
+                .then(response => response.json())
+                .then(data => {
+                    displayRouteDetails(data, 'getMaxFromRouteResult');
+                })
+                .catch(error => {
+                    document.getElementById('getMaxFromRouteResult').innerText = 'Ошибка при получении маршрута.';
+                    console.error(error);
+                });
+        });
 
-    // Количество Маршрутов с Расстоянием Меньше Заданного
-    document.getElementById('getRoutesCountForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const distance = this.distance.value;
-        fetch(`${apiBaseUrl}/routes/distance/lower/${distance}/count`, { method: 'GET' })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
+        // Количество Маршрутов с Расстоянием Меньше Заданного
+        document.getElementById('getRoutesCountForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const distance = this.distance.value;
+            fetch(`${apiBaseUrl}/routes/distance/lower/${distance}/count`, { method: 'GET' })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    return response.text().then(text => { throw new Error(text) });
+                })
+                .then(data => {
+                    document.getElementById('getRoutesCountResult').innerText = `Количество: ${data.count}`;
+                })
+                .catch(error => {
+                    document.getElementById('getRoutesCountResult').innerText = 'Ошибка при получении количества: ' + error.message;
+                    console.error(error);
+                });
+        });
+
+        // Скрытие/отображение полей начальной локации
+        document.getElementById('includeFromLocation').addEventListener('change', function () {
+            const fromFields = document.getElementById('fromLocationFields');
+            fromFields.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // Скрытие/отображение полей конечной локации
+        document.getElementById('includeToLocation').addEventListener('change', function () {
+            const toFields = document.getElementById('toLocationFields');
+            toFields.style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('includeFromLocation1').addEventListener('change', function () {
+            const fromFields = document.getElementById('fromLocationFields1');
+            fromFields.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // Скрытие/отображение полей конечной локации
+        document.getElementById('includeToLocation1').addEventListener('change', function () {
+            const toFields = document.getElementById('toLocationFields1');
+            toFields.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // Функция для получения данных маршрута из формы
+        function getRouteFormData(formData) {
+            let fromLocation = null;
+            if (document.getElementById('includeFromLocation').checked) {
+                fromLocation = {
+                    name: formData.get('from_name') || null,
+                    x: formData.get('from_x') ? parseInt(formData.get('from_x')) : 0,
+                    y: formData.get('from_y') ? parseInt(formData.get('from_y')) : 0, // По умолчанию 0
+                    z: formData.get('from_z') ? parseInt(formData.get('from_z')) : 0  // По умолчанию 0
+                };
+            }
+
+            let toLocation = null;
+            if (document.getElementById('includeToLocation').checked) {
+                toLocation = {
+                    name: formData.get('to_name') || null,
+                    x: formData.get('to_x') ? parseInt(formData.get('to_x')) : 0,
+                    y: formData.get('to_y') ? parseInt(formData.get('to_y')) : 0, // По умолчанию 0
+                    z: formData.get('to_z') ? parseInt(formData.get('to_z')) : 0  // По умолчанию 0
+                };
+            }
+
+            return {
+                name: formData.get('name'),
+                coordinates: {
+                    x: formData.get('coordinates_x') ? parseInt(formData.get('coordinates_x')) : null,
+                    y: formData.get('coordinates_y') ? parseInt(formData.get('coordinates_y')) : null
+                },
+                from: fromLocation,
+                to: toLocation,
+                distance: formData.get('distance') ? parseFloat(formData.get('distance')) : null
+            };
+        }
+
+        function getRouteFormData1(formData) {
+            let fromLocation = null;
+            if (document.getElementById('includeFromLocation1').checked) {
+                fromLocation = {
+                    name: formData.get('from_name') || null,
+                    x: formData.get('from_x') ? parseInt(formData.get('from_x')) : 0,
+                    y: formData.get('from_y') ? parseInt(formData.get('from_y')) : 0, // По умолчанию 0
+                    z: formData.get('from_z') ? parseInt(formData.get('from_z')) : 0  // По умолчанию 0
+                };
+            }
+
+            let toLocation = null;
+            if (document.getElementById('includeToLocation1').checked) {
+                toLocation = {
+                    name: formData.get('to_name') || null,
+                    x: formData.get('to_x') ? parseInt(formData.get('to_x')) : 0,
+                    y: formData.get('to_y') ? parseInt(formData.get('to_y')) : 0, // По умолчанию 0
+                    z: formData.get('to_z') ? parseInt(formData.get('to_z')) : 0  // По умолчанию 0
+                };
+            }
+
+            return {
+                name: formData.get('name'),
+                coordinates: {
+                    x: formData.get('coordinates_x') ? parseInt(formData.get('coordinates_x')) : null,
+                    y: formData.get('coordinates_y') ? parseInt(formData.get('coordinates_y')) : null
+                },
+                from: fromLocation,
+                to: toLocation,
+                distance: formData.get('distance') ? parseFloat(formData.get('distance')) : null
+            };
+        }
+
+        function validateRouteData(routeData) {
+            let errors = [];
+
+            // Валидация имени маршрута
+            if (!routeData.name || routeData.name.trim() === '') {
+                errors.push('Имя маршрута не может быть пустым.');
+            }
+
+            // Валидация координат
+            if (!routeData.coordinates) {
+                errors.push('Координаты не могут быть пустыми.');
+            } else {
+                if (routeData.coordinates.x == null || routeData.coordinates.x <= -492) {
+                    errors.push('Координата X должна быть больше -492.');
                 }
-                return response.text().then(text => { throw new Error(text) });
-            })
-            .then(data => {
-                document.getElementById('getRoutesCountResult').innerText = `Количество: ${data.count}`;
-            })
-            .catch(error => {
-                document.getElementById('getRoutesCountResult').innerText = 'Ошибка при получении количества: ' + error.message;
-                console.error(error);
-            });
-    });
-
-    // Функция для получения данных маршрута из формы
-	function getRouteFormData(formData) {
-			let fromLocation = null;
-			if (formData.get('from_x') || formData.get('from_y') || formData.get('from_z') || formData.get('from_name')) {
-				fromLocation = {
-					name: formData.get('from_name') || null,
-					x: formData.get('from_x') ? parseInt(formData.get('from_x')) : null,
-					y: formData.get('from_y') ? parseInt(formData.get('from_y')) : null,
-					z: formData.get('from_z') ? parseInt(formData.get('from_z')) : null
-				};
-			}
-
-			let toLocation = null;
-			if (formData.get('to_x') || formData.get('to_y') || formData.get('to_z') || formData.get('to_name')) {
-				toLocation = {
-					name: formData.get('to_name') || null,
-					x: formData.get('to_x') ? parseInt(formData.get('to_x')) : null,
-					y: formData.get('to_y') ? parseInt(formData.get('to_y')) : null,
-					z: formData.get('to_z') ? parseInt(formData.get('to_z')) : null
-				};
-			}
-
-			return {
-				name: formData.get('name'),
-				coordinates: {
-					x: formData.get('coordinates_x') ? parseInt(formData.get('coordinates_x')) : null,
-					y: formData.get('coordinates_y') ? parseInt(formData.get('coordinates_y')) : null
-				},
-				from: fromLocation,
-				to: toLocation,
-				distance: formData.get('distance') ? parseFloat(formData.get('distance')) : null
-			};
-		}
-	
-	function validateRouteData(routeData) {
-        let errors = [];
-
-        // Валидация имени маршрута
-        if (!routeData.name || routeData.name.trim() === '') {
-            errors.push('Имя маршрута не может быть пустым.');
-        }
-
-        // Валидация координат
-        if (!routeData.coordinates) {
-            errors.push('Координаты не могут быть пустыми.');
-        } else {
-            if (routeData.coordinates.x == null || routeData.coordinates.x <= -492) {
-                errors.push('Координата X должна быть больше -492.');
-            }
-            if (routeData.coordinates.y == null) {
-                errors.push('Координата Y не может быть пустой.');
-            }
-        }
-
-        // Валидация расстояния
-        if (routeData.distance == null || routeData.distance <= 1) {
-            errors.push('Расстояние должно быть больше 1.');
-        }
-
-        // Валидация начальной локации
-        if (routeData.from) {
-            if (routeData.from.x == null) {
-                errors.push('Координата X начальной локации не может быть пустой.');
-            }
-            if (routeData.from.name != null && routeData.from.name.trim() === '') {
-                errors.push('Имя начальной локации не может быть пустым.');
-            }
-        }
-
-        // Валидация конечной локации
-        if (routeData.to) {
-            if (routeData.to.x == null) {
-                errors.push('Координата X конечной локации не может быть пустой.');
-            }
-            if (routeData.to.name != null && routeData.to.name.trim() === '') {
-                errors.push('Имя конечной локации не может быть пустым.');
-            }
-        }
-
-        return errors;
-    }
-	document.getElementById('findRouteForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const idFrom = this.idFrom.value;
-        const idTo = this.idTo.value;
-        const shortest = this.shortest.value;
-
-        fetch(`${navigatorBaseUrl}/route/${idFrom}/${idTo}/${shortest}`, {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
+                if (routeData.coordinates.y == null) {
+                    errors.push('Координата Y не может быть пустой.');
                 }
-                return response.text().then(text => { throw new Error(text) });
-            })
-            .then(data => {
-                displayRouteDetails(data, 'findRouteResult');
-            })
-            .catch(error => {
-                document.getElementById('findRouteResult').innerText = 'Ошибка при поиске маршрута: ' + error.message;
-                console.error(error);
-            });
-    });
-
-    // Поиск Всех Маршрутов между Локациями с Сортировкой
-    document.getElementById('findRoutesForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const idFrom = this.idFrom.value;
-        const idTo = this.idTo.value;
-        const orderBy = this.orderBy.value;
-
-        fetch(`${navigatorBaseUrl}/routes/${idFrom}/${idTo}/${orderBy}`, {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json'
             }
-        })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                return response.text().then(text => { throw new Error(text) });
-            })
-            .then(data => {
-                displayRoutes(data, 'findRoutesResult');
-            })
-            .catch(error => {
-                document.getElementById('findRoutesResult').innerText = 'Ошибка при поиске маршрутов: ' + error.message;
-                console.error(error);
-            });
-    });
 
-    // Функция для отображения деталей маршрута
-    function displayRouteDetails(route, elementId) {
-        if (!route || !route.id) {
-            document.getElementById(elementId).innerText = 'Маршрут не найден.';
-            return;
+            // Валидация расстояния
+            if (routeData.distance == null || routeData.distance <= 1) {
+                errors.push('Расстояние должно быть больше 1.');
+            }
+
+            // Валидация начальной локации
+            if (routeData.from) {
+                if (routeData.from.x == null) {
+                    errors.push('Координата X начальной локации не может быть пустой.');
+                }
+                if (routeData.from.name != null && routeData.from.name.trim() === '') {
+                    errors.push('Имя начальной локации не может быть пустым.');
+                }
+            }
+
+            // Валидация конечной локации
+            if (routeData.to) {
+                if (routeData.to.x == null) {
+                    errors.push('Координата X конечной локации не может быть пустой.');
+                }
+                if (routeData.to.name != null && routeData.to.name.trim() === '') {
+                    errors.push('Имя конечной локации не может быть пустым.');
+                }
+            }
+
+            return errors;
         }
-        let html = `
+        document.getElementById('findRouteForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const idFrom = this.idFrom.value;
+            const idTo = this.idTo.value;
+            const shortest = this.shortest.value;
+
+            fetch(`${navigatorBaseUrl}/route/${idFrom}/${idTo}/${shortest}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    return response.text().then(text => { throw new Error(text) });
+                })
+                .then(data => {
+                    displayRouteDetails(data, 'findRouteResult');
+                })
+                .catch(error => {
+                    document.getElementById('findRouteResult').innerText = 'Ошибка при поиске маршрута: ' + error.message;
+                    console.error(error);
+                });
+        });
+
+        // Поиск Всех Маршрутов между Локациями с Сортировкой
+        document.getElementById('findRoutesForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const idFrom = this.idFrom.value;
+            const idTo = this.idTo.value;
+            const orderBy = this.orderBy.value;
+
+            fetch(`${navigatorBaseUrl}/routes/${idFrom}/${idTo}/${orderBy}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    return response.text().then(text => { throw new Error(text) });
+                })
+                .then(data => {
+                    displayRoutes(data, 'findRoutesResult');
+                })
+                .catch(error => {
+                    document.getElementById('findRoutesResult').innerText = 'Ошибка при поиске маршрутов: ' + error.message;
+                    console.error(error);
+                });
+        });
+
+        // Функция для отображения деталей маршрута
+        function displayRouteDetails(route, elementId) {
+            if (!route || !route.id) {
+                document.getElementById(elementId).innerText = 'Маршрут не найден.';
+                return;
+            }
+            let html = `
         <h3>Маршрут ID: ${route.id}</h3>
         <p><strong>Имя:</strong> ${route.name}</p>
         <p><strong>Расстояние:</strong> ${route.distance}</p>
@@ -631,16 +711,16 @@ document.getElementById('viewRoutesForm').addEventListener('submit', function(e)
         <p><strong>Начальная Локация:</strong><br>${formatLocation(route.from)}</p>
         <p><strong>Конечная Локация:</strong><br>${formatLocation(route.to)}</p>
         `;
-        document.getElementById(elementId).innerHTML = html;
-    }
-
-    // Функция для отображения списка маршрутов
-    function displayRoutes(routes, elementId) {
-        if (!Array.isArray(routes) || routes.length === 0) {
-            document.getElementById(elementId).innerText = 'Маршруты не найдены.';
-            return;
+            document.getElementById(elementId).innerHTML = html;
         }
-        let html = `
+
+        // Функция для отображения списка маршрутов
+        function displayRoutes(routes, elementId) {
+            if (!Array.isArray(routes) || routes.length === 0) {
+                document.getElementById(elementId).innerText = 'Маршруты не найдены.';
+                return;
+            }
+            let html = `
         <table>
             <thead>
                 <tr>
@@ -653,8 +733,8 @@ document.getElementById('viewRoutesForm').addEventListener('submit', function(e)
                 </tr>
             </thead>
             <tbody>`;
-        routes.forEach(route => {
-            html += `
+            routes.forEach(route => {
+                html += `
             <tr>
                 <td>${route.id}</td>
                 <td>${route.name}</td>
@@ -666,24 +746,24 @@ document.getElementById('viewRoutesForm').addEventListener('submit', function(e)
                 <td>${formatLocation(route.from)}</td>
                 <td>${formatLocation(route.to)}</td>
             </tr>`;
-        });
-        html += '</tbody></table>';
-        document.getElementById(elementId).innerHTML = html;
-    }
+            });
+            html += '</tbody></table>';
+            document.getElementById(elementId).innerHTML = html;
+        }
 
-    function formatLocation(location) {
-        if (!location) return 'null';
-        return `
+        function formatLocation(location) {
+            if (!location) return 'null';
+            return `
             Id: ${location.id || 'null'}, Имя: ${location.name || 'null'}<br>
-            X: ${location.x || 'null'}, Y: ${location.y || 'null'}, Z: ${location.z || 'null'}
+            X: ${location.x || '0'}, Y: ${location.y || '0'}, Z: ${location.z || '0'}
         `;
-    }
-	
-	document.getElementById('addSortCriterionBtn').addEventListener('click', function() {
-    const container = document.getElementById('sortCriteriaContainer');
-    const criterionDiv = document.createElement('div');
-    criterionDiv.classList.add('sort-criterion');
-    criterionDiv.innerHTML = `
+        }
+
+        document.getElementById('addSortCriterionBtn').addEventListener('click', function () {
+            const container = document.getElementById('sortCriteriaContainer');
+            const criterionDiv = document.createElement('div');
+            criterionDiv.classList.add('sort-criterion');
+            criterionDiv.innerHTML = `
         <label>Поле:
             <select name="sortField">
                 <option value="id">ID</option>
@@ -711,41 +791,42 @@ document.getElementById('viewRoutesForm').addEventListener('submit', function(e)
         <button type="button" class="moveDownSortCriterionBtn">↓</button>
         <button type="button" class="removeSortCriterionBtn">Удалить</button>
     `;
-    container.appendChild(criterionDiv);
+            container.appendChild(criterionDiv);
 
-    // Добавляем обработчики для новых кнопок
-    addSortCriterionEventListeners(criterionDiv);
-});
+            // Добавляем обработчики для новых кнопок
+            addSortCriterionEventListeners(criterionDiv);
+        });
 
-function addSortCriterionEventListeners(criterionDiv) {
-    // Удаление критерия
-    criterionDiv.querySelector('.removeSortCriterionBtn').addEventListener('click', function() {
-        criterionDiv.parentNode.removeChild(criterionDiv);
-    });
+        function addSortCriterionEventListeners(criterionDiv) {
+            // Удаление критерия
+            criterionDiv.querySelector('.removeSortCriterionBtn').addEventListener('click', function () {
+                criterionDiv.parentNode.removeChild(criterionDiv);
+            });
 
-    // Перемещение вверх
-    criterionDiv.querySelector('.moveUpSortCriterionBtn').addEventListener('click', function() {
-        const prevSibling = criterionDiv.previousElementSibling;
-        if (prevSibling && prevSibling.classList.contains('sort-criterion')) {
-            criterionDiv.parentNode.insertBefore(criterionDiv, prevSibling);
+            // Перемещение вверх
+            criterionDiv.querySelector('.moveUpSortCriterionBtn').addEventListener('click', function () {
+                const prevSibling = criterionDiv.previousElementSibling;
+                if (prevSibling && prevSibling.classList.contains('sort-criterion')) {
+                    criterionDiv.parentNode.insertBefore(criterionDiv, prevSibling);
+                }
+            });
+
+            // Перемещение вниз
+            criterionDiv.querySelector('.moveDownSortCriterionBtn').addEventListener('click', function () {
+                const nextSibling = criterionDiv.nextElementSibling;
+                if (nextSibling && nextSibling.classList.contains('sort-criterion')) {
+                    criterionDiv.parentNode.insertBefore(nextSibling, criterionDiv);
+                }
+            });
         }
-    });
 
-    // Перемещение вниз
-    criterionDiv.querySelector('.moveDownSortCriterionBtn').addEventListener('click', function() {
-        const nextSibling = criterionDiv.nextElementSibling;
-        if (nextSibling && nextSibling.classList.contains('sort-criterion')) {
-            criterionDiv.parentNode.insertBefore(nextSibling, criterionDiv);
-        }
-    });
-}
+        // Инициализируем обработчики для первоначального критерия сортировки
+        document.querySelectorAll('.sort-criterion').forEach(criterionDiv => {
+            addSortCriterionEventListeners(criterionDiv);
+        });
 
-// Инициализируем обработчики для первоначального критерия сортировки
-document.querySelectorAll('.sort-criterion').forEach(criterionDiv => {
-    addSortCriterionEventListeners(criterionDiv);
-});
-
-</script>
+    </script>
 
 </body>
+
 </html>

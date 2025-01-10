@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="add getCountOfRoutesWithDistanceLowerThan">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/RequestCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/RequestCreator.java" afterDir="false" />
+    <list default="true" id="c820fe69-3640-4b79-a142-421251af39f4" name="Changes" comment="fix validation">
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/ejb-module/target/classes/se/ifmo/RouteServiceBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/classes/se/ifmo/RouteServiceBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/ejb-module/target/classes/se/ifmo/ejb/RouteServiceRemote.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/ejb-module/target/classes/se/ifmo/ejb/RouteServiceRemote.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/target/classes/se/ifmo/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/classes/se/ifmo/ApplicationConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/target/classes/se/ifmo/configuration/CorsFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/classes/se/ifmo/configuration/CorsFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/classes/se/ifmo/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/classes/se/ifmo/ApplicationConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/classes/se/ifmo/configuration/CorsFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/route/web-app/target/web-app-1.0-SNAPSHOT/WEB-INF/classes/se/ifmo/configuration/CorsFilter.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -454,7 +461,23 @@
       <option name="project" value="LOCAL" />
       <updated>1736536053206</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fix validation">
+      <option name="closed" value="true" />
+      <created>1736541384158</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1736541384158</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fix validation">
+      <option name="closed" value="true" />
+      <created>1736541510144</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1736541510144</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +528,8 @@
     <MESSAGE value="add update route" />
     <MESSAGE value="GetRouteWithMaxFrom created" />
     <MESSAGE value="add getCountOfRoutesWithDistanceLowerThan" />
-    <option name="LAST_COMMIT_MESSAGE" value="add getCountOfRoutesWithDistanceLowerThan" />
+    <MESSAGE value="fix validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix validation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -526,11 +550,6 @@
           <url>file://$PROJECT_DIR$/navigator/src/main/java/ru/ifmo/controllers/NavigatorController.java</url>
           <line>69</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/proxy/src/main/java/se/ifmo/proxy/utils/xml2json.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="56" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
