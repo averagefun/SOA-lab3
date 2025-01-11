@@ -1,4 +1,5 @@
-C:\Users\pomat\Documents\SOA-lab3\route\shared\src\main\java\se\ifmo\model\Coordinates.java
-C:\Users\pomat\Documents\SOA-lab3\route\shared\src\main\java\se\ifmo\model\Route.java
-C:\Users\pomat\Documents\SOA-lab3\route\shared\src\main\java\se\ifmo\model\exception\RouteNotFoundException.java
-C:\Users\pomat\Documents\SOA-lab3\route\shared\src\main\java\se\ifmo\model\Location.java
+/Users/andreey/itmo/SOA-lab3/route/shared/src/main/java/se/ifmo/model/Location.java
+/Users/andreey/itmo/SOA-lab3/route/shared/src/main/java/se/ifmo/model/Coordinates.java
+/Users/andreey/itmo/SOA-lab3/route/shared/src/main/java/se/ifmo/model/Route.java
+/Users/andreey/itmo/SOA-lab3/route/shared/src/main/java/se/ifmo/model/exception/RouteNotFoundException.java
+/Users/andreey/itmo/SOA-lab3/route/shared/src/main/java/se/ifmo/model/LocalDateAdapter.java

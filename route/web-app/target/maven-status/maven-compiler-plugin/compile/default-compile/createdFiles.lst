@@ -1,4 +1,9 @@
-se\ifmo\ApplicationConfig.class
-se\ifmo\soap\RoutesWebService.class
-se\ifmo\exceptions\RouteNotFoundSoapException.class
-se\ifmo\configuration\CorsFilter.class
+se/ifmo/ApplicationConfig.class
+se/ifmo/exceptions/RouteSoapException.class
+se/ifmo/LogUtils.class
+se/ifmo/SOAPClientAddRoute.class
+se/ifmo/SOAPClientGetAllRoutes.class
+se/ifmo/configuration/CorsFilter.class
+se/ifmo/soap/RoutesWebService.class
+se/ifmo/exceptions/RouteFaultBean.class
+se/ifmo/LogUtils$1.class

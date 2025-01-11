@@ -1,16 +1,17 @@
 package se.ifmo.soap;
 
+import java.util.List;
+
 import jakarta.ejb.EJB;
+import jakarta.ejb.EJBException;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
-import jakarta.jws.WebService;
 import jakarta.jws.WebResult;
+import jakarta.jws.WebService;
 import se.ifmo.ejb.RouteServiceRemote;
-import se.ifmo.exceptions.RouteNotFoundSoapException;
+import se.ifmo.exceptions.RouteSoapException;
 import se.ifmo.model.Route;
 import se.ifmo.model.exception.RouteNotFoundException;
-
-import java.util.List;
 
 /**
  * Пример SOAP-сервиса, который заменяет REST-контроллер.
@@ -101,9 +102,9 @@ public class RoutesWebService {
     @WebResult(name = "createdRoute")
     public Route addRoute(
             @WebParam(name = "route") Route route
-    ) {
+    ) throws RouteSoapException {
         if (route == null) {
-            throw new IllegalArgumentException("Route cannot be null");
+            throw new RouteSoapException(400, "Route can not be null");
         }
         Route addedRoute = routeService.addRoute(route);
         System.out.println("Route added: " + addedRoute);
@@ -117,12 +118,12 @@ public class RoutesWebService {
     @WebResult(name = "route")
     public Route getRouteById(
             @WebParam(name = "id") long id
-    ) throws RouteNotFoundSoapException {
+    ) throws RouteSoapException {
         try {
             return routeService.getRouteById(id);
-        } catch (RouteNotFoundException e) {
-            // Перехватываем RouteNotFoundException и пробрасываем в виде SOAPFault или собственного @WebFault
-            throw new RouteNotFoundSoapException(e.getMessage(), e);
+        } catch (EJBException e) {
+            switchFaults(e.getCause());
+            throw e;
         }
     }
 
@@ -134,11 +135,12 @@ public class RoutesWebService {
     public Route updateRoute(
             @WebParam(name = "id") long id,
             @WebParam(name = "updatedRoute") Route updatedRoute
-    ) throws RouteNotFoundSoapException {
+    ) throws RouteSoapException {
         try {
             return routeService.updateRoute(id, updatedRoute);
-        } catch (RouteNotFoundException e) {
-            throw new RouteNotFoundSoapException(e.getMessage(), e);
+        } catch (EJBException e) {
+            switchFaults(e.getCause());
+            throw e;
         }
     }
 
@@ -148,11 +150,12 @@ public class RoutesWebService {
     @WebMethod
     public void deleteRoute(
             @WebParam(name = "id") long id
-    ) throws RouteNotFoundSoapException {
+    ) throws RouteSoapException {
         try {
             routeService.deleteRoute(id);
-        } catch (RouteNotFoundException e) {
-            throw new RouteNotFoundSoapException(e.getMessage(), e);
+        } catch (EJBException e) {
+            switchFaults(e.getCause());
+            throw e;
         }
     }
 
@@ -174,5 +177,12 @@ public class RoutesWebService {
             @WebParam(name = "distance") double value
     ) {
         return routeService.getCountOfRoutesWithDistanceLowerThan(value);
+    }
+
+    private void switchFaults(Throwable cause) throws RouteSoapException {
+        if (cause instanceof RouteNotFoundException) {
+            throw new RouteSoapException(404, "Route not found");
+        }
+        throw new RouteSoapException(500, "Internal server error");
     }
 }

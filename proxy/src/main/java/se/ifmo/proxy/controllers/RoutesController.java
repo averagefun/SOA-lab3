@@ -1,5 +1,7 @@
 package se.ifmo.proxy.controllers;
 
+import java.util.List;
+
 import jakarta.validation.Valid;
 import jakarta.xml.soap.SOAPConnection;
 import jakarta.xml.soap.SOAPConnectionFactory;
@@ -17,9 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import se.ifmo.model.Route;
-import se.ifmo.proxy.utils.SSLUtil;
-
-import java.util.List;
+import se.ifmo.proxy.utils.LogUtils;
 
 import static se.ifmo.proxy.utils.RequestCreator.createAddRouteRequest;
 import static se.ifmo.proxy.utils.RequestCreator.createDeleteRouteRequest;
@@ -39,7 +39,6 @@ import static se.ifmo.proxy.utils.xml2json.parseSoapUpdateResponse;
 @RequestMapping("/routes")
 public class RoutesController {
 
-    private static final String SERVICE_URL = "https://localhost:8181/web-app-1.0-SNAPSHOT/RoutesService";
     @GetMapping
     public ResponseEntity<List<Route>> getAllRoutes(
             @RequestParam(name = "page", defaultValue = "1") int page,
@@ -63,7 +62,7 @@ public class RoutesController {
     ) {
         SOAPConnection soapConnection = null;
         try {
-            SSLUtil.disableSSLVerification();
+            LogUtils.log();
             SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
             soapConnection = soapConnectionFactory.createConnection();
 
@@ -99,7 +98,7 @@ public class RoutesController {
     @PostMapping
     public ResponseEntity<Route> addRoute(@RequestBody @Valid Route route) {
         try {
-            SSLUtil.disableSSLVerification();
+            LogUtils.log();
             SOAPMessage soapRequest = createAddRouteRequest(route);
             SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
             SOAPConnection soapConnection = soapConnectionFactory.createConnection();
@@ -115,7 +114,7 @@ public class RoutesController {
     public ResponseEntity<Route> getRouteById(@PathVariable long id) {
         SOAPConnection soapConnection = null;
         try {
-            SSLUtil.disableSSLVerification();
+            LogUtils.log();
             SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
             soapConnection = soapConnectionFactory.createConnection();
             SOAPMessage soapRequest = createSoapGetRouteByIdRequest(id);
@@ -139,7 +138,7 @@ public class RoutesController {
     @PutMapping("/{id}")
     public ResponseEntity<Route> updateRoute(@PathVariable long id, @RequestBody @Valid Route updatedRoute) {
         try {
-            SSLUtil.disableSSLVerification();
+            LogUtils.log();
             SOAPMessage soapRequest = createUpdateRouteRequest(updatedRoute, id);
             SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
             SOAPConnection soapConnection = soapConnectionFactory.createConnection();
@@ -154,7 +153,7 @@ public class RoutesController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteRoute(@PathVariable long id) {
         try {
-            SSLUtil.disableSSLVerification();
+            LogUtils.log();
             SOAPMessage soapRequest = createDeleteRouteRequest(id);
             SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
             SOAPConnection soapConnection = soapConnectionFactory.createConnection();
@@ -172,7 +171,7 @@ public class RoutesController {
     @GetMapping("/from/max")
     public ResponseEntity<Route> getRouteWithMaxFrom() {
         try {
-            SSLUtil.disableSSLVerification();
+            LogUtils.log();
             SOAPMessage soapRequest = createGetRouteWithMaxFromRequest();
             SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
             SOAPConnection soapConnection = soapConnectionFactory.createConnection();
@@ -187,7 +186,7 @@ public class RoutesController {
     @GetMapping("/distance/lower/{value}/count")
     public ResponseEntity<String> getCountOfRoutesWithDistanceLowerThan(@PathVariable double value) {
         try {
-            SSLUtil.disableSSLVerification();
+            LogUtils.log();
             SOAPMessage soapRequest = createGetCountOfRoutesWithDistanceLowerThanRequest(value);
             SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
             SOAPConnection soapConnection = soapConnectionFactory.createConnection();
@@ -199,4 +198,6 @@ public class RoutesController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
+    private static final String SERVICE_URL = "https://localhost:8181/web-app-1.0-SNAPSHOT/RoutesService";
 }

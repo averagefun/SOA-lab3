@@ -20,10 +20,7 @@ public class SOAPClientAddRoute {
 
     public static void main(String[] args) {
         try {
-            // Если у вас самоподписанный сертификат и нужно отключить проверку,
-            // оставьте вызов disableSSLVerification(); (зависит от реализации SSLUtil).
-            // Если класс SSLUtil недоступен, удалите эту строку или подключите нужный класс.
-            SSLUtil.disableSSLVerification();
+            LogUtils.log();
 
             // Адрес вашего SOAP-сервиса (без ?wsdl)
             // Например: "https://desktop-jnccspf:8181/web-app-1.0-SNAPSHOT/RoutesService"

@@ -50,7 +50,7 @@ public class Route {
     @JoinColumn(name = "from_location_id", nullable = true)
     private Location from;
 
-    @ManyToOne(optional = true) // Устанавливаем связь как опциональную
+    @ManyToOne(optional = true)
     @JoinColumn(name = "to_location_id", nullable = true)
     private Location to;
 

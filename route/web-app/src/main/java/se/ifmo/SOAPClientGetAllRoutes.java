@@ -5,7 +5,6 @@ import jakarta.xml.soap.SOAPBody;
 import jakarta.xml.soap.SOAPBodyElement;
 import jakarta.xml.soap.SOAPConnection;
 import jakarta.xml.soap.SOAPConnectionFactory;
-import jakarta.xml.soap.SOAPElement;
 import jakarta.xml.soap.SOAPEnvelope;
 import jakarta.xml.soap.SOAPHeader;
 import jakarta.xml.soap.SOAPMessage;
@@ -21,30 +20,19 @@ public class SOAPClientGetAllRoutes {
 
     public static void main(String[] args) {
         try {
-            // Отключаем проверку SSL (если используете самоподписанный сертификат),
-            // иначе удалите эту строку или импортируйте сертификат в truststore.
-            SSLUtil.disableSSLVerification();
-
-            // Адрес вашего SOAP-сервиса (без ?wsdl)
-            // Например: "https://desktop-jnccspf:8181/web-app-1.0-SNAPSHOT/RoutesService"
+            LogUtils.log();
             String serviceURL = "https://localhost:8181/web-app-1.0-SNAPSHOT/RoutesService";
 
             // Создаём SOAP-соединение
             SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
             SOAPConnection soapConnection = soapConnectionFactory.createConnection();
 
-            // Готовим SOAP-запрос
             SOAPMessage soapRequest = createGetAllRoutesRequest();
-
-            // Отправка и получение ответа
             SOAPMessage soapResponse = soapConnection.call(soapRequest, serviceURL);
 
-            // Вывод ответа
             System.out.println("===== SOAP Response =====");
             soapResponse.writeTo(System.out);
             System.out.println("\n=========================");
-
-            // Закрываем соединение
             soapConnection.close();
 
         } catch (Exception e) {
@@ -74,13 +62,11 @@ public class SOAPClientGetAllRoutes {
 
         // Формируем Envelope
         SOAPEnvelope envelope = soapPart.getEnvelope();
-        // Удаляем дефолтный префикс, если нужно
         envelope.removeNamespaceDeclaration("SOAP-ENV");
         envelope.addNamespaceDeclaration(soapEnvPrefix, soapEnvURI);
         envelope.addNamespaceDeclaration(servicePrefix, serviceURI);
         envelope.setPrefix(soapEnvPrefix);
 
-        // Создаём Header (можно оставить пустым)
         SOAPHeader header = envelope.getHeader();
         header.setPrefix(soapEnvPrefix);
 
@@ -92,13 +78,11 @@ public class SOAPClientGetAllRoutes {
         QName getAllRoutesQName = new QName(serviceURI, "getAllRoutes", servicePrefix);
         SOAPBodyElement getAllRoutesElement = body.addBodyElement(getAllRoutesQName);
 
-        // Добавляем обязательные параметры page и size
         getAllRoutesElement
                 .addChildElement("page").addTextNode("1");
         getAllRoutesElement
                 .addChildElement("size").addTextNode("2");
 
-        // Сохраняем сообщение
         soapMessage.saveChanges();
 
         // Для отладки: выводим сформированный SOAP-запрос

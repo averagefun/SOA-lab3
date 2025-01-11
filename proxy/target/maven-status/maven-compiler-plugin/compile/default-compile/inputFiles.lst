@@ -1,0 +1,6 @@
+/Users/andreey/itmo/SOA-lab3/proxy/src/main/java/se/ifmo/proxy/ProxyApplication.java
+/Users/andreey/itmo/SOA-lab3/proxy/src/main/java/se/ifmo/proxy/configuration/WebConfig.java
+/Users/andreey/itmo/SOA-lab3/proxy/src/main/java/se/ifmo/proxy/controllers/RoutesController.java
+/Users/andreey/itmo/SOA-lab3/proxy/src/main/java/se/ifmo/proxy/utils/RequestCreator.java
+/Users/andreey/itmo/SOA-lab3/proxy/src/main/java/se/ifmo/proxy/utils/SSLUtil.java
+/Users/andreey/itmo/SOA-lab3/proxy/src/main/java/se/ifmo/proxy/utils/xml2json.java

@@ -24,39 +24,39 @@ public class ApplicationConfig extends Application {
 //        registerServiceInConsul();
 //    }
 
-    private void registerServiceInConsul() {
-        try {
-            String consulUrl = "http://localhost:8500/v1/agent/service/register";
-            String serviceDefinition = "{"
-                    + "\"ID\": \"web-app\","
-                    + "\"Name\": \"web-app\","
-                    + "\"Address\": \"localhost\","
-                    + "\"Port\": 8284,"
-                    + "\"Check\": {"
-                    + "    \"HTTP\": \"http://localhost:8284/route/api/routes\","
-                    + "    \"Interval\": \"10s\""
-                    + "}"
-                    + "}";
-
-            URL url = new URL(consulUrl);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("PUT");
-            conn.setDoOutput(true);
-            conn.setRequestProperty("Content-Type", "application/json");
-
-            try (OutputStream os = conn.getOutputStream()) {
-                os.write(serviceDefinition.getBytes());
-                os.flush();
-            }
-
-            int responseCode = conn.getResponseCode();
-            if (responseCode == 200) {
-                System.out.println("Service registered successfully in Consul.");
-            } else {
-                System.err.println("Failed to register service in Consul. Response code: " + responseCode);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    private void registerServiceInConsul() {
+//        try {
+//            String consulUrl = "http://localhost:8500/v1/agent/service/register";
+//            String serviceDefinition = "{"
+//                    + "\"ID\": \"web-app\","
+//                    + "\"Name\": \"web-app\","
+//                    + "\"Address\": \"localhost\","
+//                    + "\"Port\": 8284,"
+//                    + "\"Check\": {"
+//                    + "    \"HTTP\": \"http://localhost:8284/route/api/routes\","
+//                    + "    \"Interval\": \"10s\""
+//                    + "}"
+//                    + "}";
+//
+//            URL url = new URL(consulUrl);
+//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//            conn.setRequestMethod("PUT");
+//            conn.setDoOutput(true);
+//            conn.setRequestProperty("Content-Type", "application/json");
+//
+//            try (OutputStream os = conn.getOutputStream()) {
+//                os.write(serviceDefinition.getBytes());
+//                os.flush();
+//            }
+//
+//            int responseCode = conn.getResponseCode();
+//            if (responseCode == 200) {
+//                System.out.println("Service registered successfully in Consul.");
+//            } else {
+//                System.err.println("Failed to register service in Consul. Response code: " + responseCode);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

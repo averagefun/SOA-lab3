@@ -115,6 +115,4 @@
 //    public Response getCountOfRoutesWithDistanceLowerThan(@PathParam("value") double value) {
 //        return Response.ok("{\"count\":" + routeService.getCountOfRoutesWithDistanceLowerThan(value) + "}").build();
 //    }
-//
-//
 //}
